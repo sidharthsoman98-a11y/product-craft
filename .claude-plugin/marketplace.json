@@ -1,0 +1,24 @@
+{
+  "name": "product-craft",
+  "owner": {
+    "name": "product-craft contributors"
+  },
+  "metadata": {
+    "description": "Product management craft toolkit: analysis, metrics, economics, ideation, prototyping, shipping.",
+    "version": "1.1.0"
+  },
+  "plugins": [
+    {
+      "name": "product-craft",
+      "source": "./",
+      "description": "Teardowns, metric architecture, decision forensics, unit economics, ideation, prototypes and one-day interview sprints.",
+      "category": "productivity",
+      "tags": [
+        "product-management",
+        "interview-prep",
+        "metrics",
+        "prototyping"
+      ]
+    }
+  ]
+}
