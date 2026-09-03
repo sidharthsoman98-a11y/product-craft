@@ -49,8 +49,8 @@ cheap to correct and expensive to discover later.
 **Step 5: red team.** Always. Run `red-team` on the assembled deliverable, fix what it
 finds, and report the score before and after.
 
-**Step 6: coverage ledger.** Print the thirteen-row ledger from `routing.md` immediately
-before the deliverable. Every skill is APPLIED, CONSIDERED-SKIPPED with the failed test
+**Step 6: coverage ledger.** Print the coverage ledger from `routing.md` immediately before
+the deliverable, one row per candidate skill for this mode. Every skill is APPLIED, CONSIDERED-SKIPPED with the failed test
 named, or DEFERRED with the blocker named. "Not relevant" is not a permitted reason.
 Repeat every DEFERRED row in a closing "what I would do next" line.
 

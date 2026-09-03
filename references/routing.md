@@ -115,13 +115,22 @@ proceeding, not noted and carried forward.
 | G3 Decision | Convergence | One direction chosen, alternatives recorded with reasons, before any building |
 | G4 Numbers | Economics and metrics | Every number carries measured, benchmarked or assumed, and the leaves compose into the parent |
 | G5 Build | Prototype | Core loop completable end to end, one unhappy path present, deployed if a link is needed |
-| G6 Coverage | Before delivery | Ledger complete, all thirteen rows accounted for |
+| G6 Coverage | Before delivery | Ledger complete: one row per candidate skill for this mode, every row accounted for |
 | G7 Quality | Before delivery | Red team run, no rubric dimension below 3, one fix identified |
 
 ## 5. Coverage ledger
 
-Printed immediately before the deliverable, every time. Thirteen rows, always thirteen.
+Printed immediately before the deliverable, every time. **One row per candidate skill for
+this mode** — per D2, the ledger is scoped to the candidate set rather than listing every
+skill in the pack, because an exhaustive ledger stops being read and a ledger nobody reads
+cannot audit anything. The candidate set is the scenario's sequence plus every skill whose
+applicability test in section 3 was evaluated and failed. `orchestrate` is never a row; it
+is what prints the ledger.
+
 Status is one of: APPLIED, CONSIDERED-SKIPPED, DEFERRED.
+
+Example, for a scenario 1 teardown. The row count is a property of the scenario, not a
+target to hit:
 
 ```
 | Skill                | Status             | Reason / where its output lives          |
