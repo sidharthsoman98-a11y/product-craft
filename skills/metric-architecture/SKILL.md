@@ -1,6 +1,6 @@
 ---
 name: metric-architecture
-description: Design a complete metric system for a product or feature - value primitive, north star with selection tests, input tree, guardrails, event instrumentation, SQL, experiment design and pre-registered decision rules. Use this whenever someone asks how to measure something, what metrics to track, how a metric is defined or calculated, how to tell if a feature worked, how to diagnose a metric that moved, how to design an A/B test, or what the north star should be, and use it as a matter of course for any product analysis that will need a measurement section.
+description: Design a complete metric system for a product or feature - value primitive, north star with selection tests, input tree, guardrails, event instrumentation, SQL, experiment design and pre-registered decision rules. Use this whenever someone asks how to measure something, what metrics to track, how a metric is defined or calculated, how to tell if a feature worked, how to design an A/B test, or what the north star should be, and use it as a matter of course for any product analysis that will need a measurement section.
 ---
 
 # Metric architecture
@@ -44,12 +44,9 @@ test design. Load `../../references/economics-library.md` when the metric touche
     differently over the last year, and what choosing the runner-up north star would have
     cost. A metric that would not have changed a decision is not worth collecting.
 
-## Diagnosis mode
+## Diagnosis
 
-If the request is "metric X moved, why", follow the diagnostic playbook in the library in
-order: is it real, is it a slice, is it mix or rate, is it us or the world, where in the
-chain, what is the mechanism, what does delay cost. State the single query you would run at
-each step. Refuse to explain a large change with several small stories.
+A metric that has already moved is `rca`, not this skill. Hand over (D3).
 
 ## Output
 

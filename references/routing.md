@@ -51,7 +51,7 @@ C = conditional (apply the test in section 3), S = skip and record why.
 |---|---|---|---|
 | 1 | Analyse an existing product | "break down X", "what would you improve", "teardown" | `product-teardown` M → `metric-architecture` M → `unit-economics` C → `decision-forensics` C → `artefact-forge` C → `red-team` M |
 | 2 | Metric or measurement question | "how would you measure", "what metrics", "north star" | `metric-architecture` M → `unit-economics` C → `red-team` M |
-| 3 | Metric diagnosis | "X dropped 20%", "why did Y move" | `metric-architecture` (diagnosis mode) M → `decision-forensics` C → `red-team` M |
+| 3 | Metric diagnosis | "X dropped 20%", "why did Y move", "orders are down", incident or post-mortem | `rca` M → `decision-forensics` C → `red-team` M |
 | 4 | Why did they build it this way | "why does X work like that", "what if they had" | `decision-forensics` M → `metric-architecture` C (to quantify the counterfactual) → `red-team` M |
 | 5 | New product or feature idea | "what should we build", "I have an idea" | `idea-forge` M → `discovery-brief` M → `market-sizing` C → `unit-economics` M → `metric-architecture` M → `spec-writer` M → `prototype-build` C → `ship-it` C → `red-team` M |
 | 6 | Build a prototype | "make a prototype", "build a demo" | decision check → `idea-forge` C (if no written decision) → `prototype-build` M → `ship-it` C → `artefact-forge` C → `red-team` M |
