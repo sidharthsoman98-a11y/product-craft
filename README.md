@@ -3,7 +3,7 @@
 A Claude Code plugin for doing product management work properly, and for surviving PM and
 APM interview loops where a full case has to be turned around in a day.
 
-Fourteen skills, eight reference libraries and ten slash commands covering the two halves
+Fifteen skills, fourteen reference libraries and ten slash commands covering the two halves
 of the job: taking products apart, and putting new ones together, plus an orchestrator that
 routes between them and proves coverage before anything is delivered.
 
@@ -38,6 +38,7 @@ when you want to invoke one deliberately.
 | `decision-forensics` | `/why` | Why a team decided what they did, and what the counterfactual would have cost |
 | `unit-economics` | `/economics` | Contribution stack, cohort payback, break-even, sensitivity |
 | `market-sizing` | | Bottom-up and top-down estimates with reconciliation and sense-checks |
+| `rca` | | Diagnose a metric that moved or a production incident: fact base, ruled out, isolating cut, falsifiable mechanism |
 
 **Building**
 
@@ -61,7 +62,7 @@ when you want to invoke one deliberately.
 
 | Skill | Command | Does |
 |---|---|---|
-| `orchestrate` | `/run` | Classifies the request, sequences the other skills by dependency, enforces seven gates, and prints a coverage ledger showing every skill as applied, considered-and-skipped with the reason, or deferred |
+| `orchestrate` | `/run` | Classifies the request, sequences the other skills by dependency, enforces seven gates, and prints a coverage ledger with a row per candidate skill: applied, considered-and-skipped with the failed test named, or deferred |
 
 `/run` is the default entry point for anything substantial. The individual commands are for
 when you already know which instrument you want.
@@ -70,7 +71,7 @@ when you already know which instrument you want.
 
 Skills load these on demand rather than carrying everything in context.
 
-- `references/metric-library.md` — value primitives, north star tests, six decomposition
+- `references/metric-library.md` — value primitives, north star tests, seven decomposition
   patterns, ten archetype spines (marketplace, quick commerce, payments, lending, SaaS, ads,
   streaming, AI-native, dev tools, logistics), the diagnostic playbook, metric-to-decision
   mapping, and eleven failure modes.
@@ -88,13 +89,27 @@ Skills load these on demand rather than carrying everything in context.
   applicability tests, seven gates and the coverage ledger format.
 - `references/prototype-stack.md` and `references/artefact-recipes.md` — how to build and
   what to build with.
+- `references/role-packs.md` — consumer tech and fintech PM archetypes: charter, owned
+  metrics, stakeholders, weekly artefacts, interview loop shape, and the failure modes of a
+  new PM in that seat. Public sources only.
+- `references/india-context.md` — devices and networks, language, trust and payment
+  behaviour, commerce, seasonality, payments rails, the regulatory boundary, and the
+  unpriced cost. No statistics, by design: it says how to derive them instead.
+- `references/sources.md` — the five-tier source hierarchy, what may never be recalled from
+  memory, the verification protocol, and the staleness rules.
+- `references/external-skills.md` — which external skills to delegate to, which are
+  disabled, the metrics-review boundary, and the Claude Code versus claude.ai split.
+- `references/tooling.md` — environment capability matrix, document generation, MCP servers,
+  hooks, parallel execution.
 
 ## How the pieces fit
 
 ```
 theme or brief
    |
-/sprint ................. plans the clock and enforces the gates
+/run .................... routes the work and enforces the gates
+   |
+/sprint ................. holds the clock when there is a deadline
    |
 /brainstorm ............. decide the concept (never skip to building)
    |

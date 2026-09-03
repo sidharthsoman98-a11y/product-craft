@@ -13,7 +13,13 @@ a fact base, and then explain a measurement artefact for a week.
 Load `../../references/metric-library.md` for the diagnostic playbook in section 5 and the
 archetype spine that gives the decomposition. Load `../../references/india-context.md`
 section 5 before ruling on seasonality, and `../../references/instrumentation-and-experiments.md`
-section 2 when step 2 turns up a measurement candidate.
+section 2 when step 2 below turns up a measurement candidate.
+
+**The playbook is numbered one step behind this skill.** It opens at "is it real"; step 1
+here, the fact base, has no counterpart in it, because the playbook assumes the number has
+already been pinned down. So playbook step *n* is this skill's step *n+1* throughout. Do not
+read the playbook's step 1 as this skill's step 1 and start generating hypotheses against an
+unstated denominator, which is the failure step 1 exists to prevent.
 
 ## What this is not
 
