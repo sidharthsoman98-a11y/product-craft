@@ -37,13 +37,10 @@ for f in commands/*.md; do grep -q '^description: ' "$f" || { note "FAIL $f: no 
 note "checked $(ls commands/*.md | wc -l) commands"
 
 echo "== routing coverage =="
-# Checks 1 and 2 are advisory until references/routing.md carries the line
-# "# routing-v2-complete", after which they are enforced.
-if grep -q '^# routing-v2-complete$' references/routing.md 2>/dev/null; then
-  routing_mode="FAIL"; note "mode: STRICT (routing-v2-complete present) - gaps fail the build"
-else
-  routing_mode="WARN"; note "mode: LENIENT (no routing-v2-complete marker) - gaps warn only"
-fi
+# Check 1 is enforced: a skill on disk with no applicability row is the silent failure the
+# registration rule in routing.md section 3 exists to prevent, and it fails the build.
+# Check 2 stays advisory: routing.md legitimately forward-references skills the build plan
+# has scheduled but not yet written, and those are warnings, not errors.
 
 # The applicability table is section 3 of routing.md; skills are the first cell, backticked.
 table_skills=$(sed -n '/^## 3\. Per-skill applicability/,/^## 4\./p' references/routing.md \
@@ -52,20 +49,20 @@ table_skills=$(sed -n '/^## 3\. Per-skill applicability/,/^## 4\./p' references/
 named_skills=$(grep -o '`[a-z][a-z0-9-]*`' references/routing.md | tr -d '`' | sort -u)
 dir_skills=$(ls -d skills/*/ 2>/dev/null | xargs -n1 basename | sort -u)
 
-# 1. every skills/ directory appears in the applicability table
+# 1. every skills/ directory appears in the applicability table. Enforced.
 for d in $dir_skills; do
   echo "$table_skills" | grep -qx "$d" || {
-    note "$routing_mode $d: not in the applicability table in references/routing.md"
-    [ "$routing_mode" = "FAIL" ] && fail=1
+    note "FAIL $d: not in the applicability table in references/routing.md"
+    note "     the registration rule in routing.md section 3: the row lands with the skill"
+    fail=1
   }
 done
 
-# 2. every skill named in routing.md exists as a directory
+# 2. every skill named in routing.md exists as a directory. Advisory: a planned skill
+#    named ahead of its build step is expected, not broken.
 for n in $named_skills; do
-  echo "$dir_skills" | grep -qx "$n" || {
-    note "$routing_mode routing.md names '$n' but skills/$n/ does not exist"
-    [ "$routing_mode" = "FAIL" ] && fail=1
-  }
+  echo "$dir_skills" | grep -qx "$n" || \
+    note "WARN routing.md names '$n' but skills/$n/ does not exist yet (planned)"
 done
 note "applicability table lists $(echo "$table_skills" | grep -c .) of $(echo "$dir_skills" | grep -c .) skills"
 

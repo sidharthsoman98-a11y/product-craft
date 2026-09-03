@@ -23,13 +23,18 @@ downstream skill needs to avoid inventing something.
                      ▲                │                  ▲                 │
                      │                ▼                  │                 ▼
 product-teardown ──► decision-forensics          unit-economics      artefact-forge
-        │                                               ▲                 │
+        │                    ▲                          ▲                 │
+        │             rca ───┘                          │                 │
+        │                                               │                 │
         └──────────► metric-architecture ───────────────┘                 │
                               ▲                                           │
                      market-sizing                                        │
                                                                           ▼
-interview-sprint (wraps everything, owns the clock) ────────────────► red-team ──► deliver
+interview-sprint (holds the clock, invoked by orchestrate) ─────────► red-team ──► deliver
 ```
+
+`orchestrate` does not appear in the graph because it is not routed: it reads this file,
+selects the sequence and walks the gates. Everything else is an instrument it picks up.
 
 Hard rules:
 - `red-team` runs last, on every deliverable, without exception.
@@ -39,8 +44,13 @@ Hard rules:
 - `ship-it` requires a working build.
 - `unit-economics` requires a defined unit, which usually comes from teardown layer 2 or
   from the idea-forge concept.
-- `interview-sprint` runs first when there is a deadline, because it changes the depth of
-  everything else.
+- `rca` is an entry point, not a downstream step. It requires a stated fact base — metric,
+  definition, denominator, magnitude, window, baseline — and refuses to proceed without one.
+  If a diagnosis concludes the metric set itself is wrong, it hands back to
+  `metric-architecture` rather than redesigning the tree inside the diagnosis.
+- `orchestrate` is the entry point when there is a deadline, and it invokes
+  `interview-sprint` first, because the clock changes the depth of everything else.
+  `interview-sprint` owns the schedule inside the run; `orchestrate` owns the routing.
 
 ## 2. Scenario routing table
 
@@ -68,6 +78,13 @@ so. If it matches none, say which is closest and what is different about this on
 For every skill not run, the ledger must record which test failed. "Not relevant" is not an
 acceptable reason; name the test.
 
+**Registration rule: a new skill adds its row to this table in the same commit that creates
+the skill.** A skill the router does not know about is the most likely silent failure in the
+pack, and it is silent precisely because everything still appears to work. `scripts/validate.sh`
+enforces this: check 1 fails the build when a directory under `skills/` has no row here.
+Step 4.3 rewrites this table wholesale for three modes and the full skill set; until then the
+rule is what keeps it from going stale.
+
 | Skill | Include when | Skip when |
 |---|---|---|
 | `product-teardown` | An existing product must be understood before anything is recommended | The product is new or hypothetical, or only one narrow layer is in question |
@@ -82,7 +99,9 @@ acceptable reason; name the test.
 | `ship-it` | A link is needed by another person | The prototype will only ever run locally, and a recording is the fallback |
 | `artefact-forge` | The argument depends on a sequence, a comparison, a journey or a model | Prose carries it and a diagram would be decoration |
 | `interview-sprint` | There is a deadline | No deadline, or the task is under thirty minutes |
+| `rca` | A number has already moved, or there is an incident to explain | Nothing has moved; the question is what to measure, which is `metric-architecture` |
 | `red-team` | Always | Never |
+| `orchestrate` | Routes rather than being routed. It reads this file and selects the others, so it never appears as a row in a coverage ledger and never has a skip test | — |
 
 ## 4. Gates
 

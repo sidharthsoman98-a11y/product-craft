@@ -91,6 +91,10 @@ git checkout -b v2
 
 Rules:
 - One commit per skill or per file change. Never batch.
+- **A new skill's applicability row in `references/routing.md` section 3 lands in the same
+  commit that creates the skill.** A skill the router does not know about still appears to
+  work, which is why it is the most likely silent failure. Step 4.3 rewrites the table
+  wholesale; this rule keeps it non-empty and current until then.
 - `bash scripts/validate.sh` after every commit. A failure is fixed before the next step.
 - The plugin stays installed from `main` while you build on `v2`. Nothing you do can break
   a working setup mid-week.
@@ -99,8 +103,11 @@ Rules:
 
 Extend `validate.sh` with four new checks before writing any skill:
 1. Every skill directory appears in `routing.md`'s applicability table. Catches a skill the
-   router does not know about, which is the most likely silent failure.
-2. Every skill named in `routing.md` exists on disk. Catches the reverse.
+   router does not know about, which is the most likely silent failure. **Enforced — this
+   check fails the build**, because an advisory version of it does not enforce the
+   registration rule above, and a rule nothing enforces is a preference.
+2. Every skill named in `routing.md` exists on disk. Catches the reverse. Advisory: routing
+   legitimately names skills the schedule has not reached yet.
 3. No two skill descriptions share a distinctive trigger phrase. Crude, but it catches the
    `drill` versus `red-team` class of collision.
 4. Description length under 500 characters and frontmatter name matches the directory.
