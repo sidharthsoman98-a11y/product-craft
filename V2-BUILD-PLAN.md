@@ -154,9 +154,34 @@ criteria must be testable, and edge cases must include failure, retry and reconc
 | 20 min | Deletions, `run` to `craft` rename, templates, rubric gates |
 | 20 min | Plugin hygiene: disable the four PM-plugin overlaps and common-room |
 | 35 min | Evals with `skill-creator` against twenty realistic prompts. Fix the misfires |
-| 20 min | Version 2.0.0, README, merge to `main`, push, `claude plugin update` |
+| 20 min | Version 2.0.0, README, merge to `main`, push |
+| 10 min | Install and verify the built plugin, per the release sequence below |
 
-**Acceptance**: section 6.
+**Release sequence.** A merge does not update the installed plugin — the cache is a pinned
+copy at a commit, so the pack keeps running the old build until it is updated and reloaded.
+In order:
+
+1. Merge `v2` into `main` and push.
+2. `claude plugin update product-craft`
+3. **Restart the session.** Plugin skills load at session start, so an updated cache is not
+   live in the session that updated it.
+4. **Verify before testing anything.** The installed version must read 2.0.0, and the cached
+   copy must contain `skills/rca` and `skills/drill`. If either check fails, the acceptance
+   test below is measuring the old build and its result means nothing.
+
+   ```bash
+   cat ~/.claude/plugins/installed_plugins.json
+   ls ~/.claude/plugins/cache/product-craft/product-craft/2.0.0/skills
+   ```
+
+5. Only then run the three acceptance prompts in section 6.
+
+> **The installed copy is currently pinned at v1.1.0, commit `8cc7d95`.** Any use of the
+> pack before the merge is testing that build, not the working tree: no v2 work, and none of
+> v1.2.0 either — including the document-generation routing by environment, so a pre-merge
+> session will still promise document skills that do not exist in Claude Code.
+
+**Acceptance**: section 6, after step 4 above has passed.
 
 ---
 
