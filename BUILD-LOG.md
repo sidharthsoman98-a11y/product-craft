@@ -10,7 +10,7 @@ Rule: tick a box only after that step's commit lands. Uncommitted work does not 
 - [x] 1.6 references/sources.md + external-skills.md
 
 ## Day 2 — interview-critical four
-- [ ] 2.1 skills/rca + diagnosis section removed from metric-architecture
+- [x] 2.1 skills/rca + diagnosis section removed from metric-architecture
 - [ ] 2.2 skills/analytics-sql
 - [ ] 2.3 skills/marketplace-ops
 - [ ] 2.4 skills/drill
