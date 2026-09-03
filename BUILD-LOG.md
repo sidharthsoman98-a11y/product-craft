@@ -1,5 +1,8 @@
 # Build log — v2.0.0
 Rule: tick a box only after that step's commit lands. Uncommitted work does not count.
+Second rule, for acceptance steps: the installed plugin is pinned at v1.1.0 until 4.6, so
+any test run through the router before the merge is measuring the old build. Acceptance
+steps that need the router are marked for Sunday and cannot be ticked early.
 
 ## Day 1 — foundations
 - [x] 1.1 branch, plan, log
@@ -14,7 +17,9 @@ Rule: tick a box only after that step's commit lands. Uncommitted work does not 
 - [ ] 2.2 skills/analytics-sql
 - [ ] 2.3 skills/marketplace-ops
 - [ ] 2.4 skills/drill
-- [ ] 2.5 acceptance: live RCA drill
+- [ ] 2.5a acceptance, content: read skills/drill/SKILL.md directly and run a drill by it
+- [ ] 2.5b acceptance, routing: after 4.6 installs, ask for a drill in plain language from
+      ~/pm-work and confirm the router reaches it unprompted
 
 ## Day 3 — job-side five
 - [ ] 3.1 platform-integration

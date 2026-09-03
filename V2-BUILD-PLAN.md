@@ -136,9 +136,27 @@ Extend `validate.sh` with four new checks before writing any skill:
 | 45 min | `marketplace-ops` |
 | 45 min | `drill`, delegating its scoring to `red-team` |
 
-**Acceptance**: run one live RCA drill on a Swiggy-style prompt. It must give the prompt,
-hold the clock, refuse to coach mid-round, then score. If it explains instead of examining,
-the description is wrong, and that is the fix before Saturday.
+**Acceptance**, in two parts, because a single test here would measure the wrong build.
+The installed plugin is pinned at v1.1.0 until step 4.6 merges and updates it, so nothing
+run before Sunday exercises the v2 skills through the router — a pre-merge session loads the
+old cache no matter what is in the working tree. Splitting the test separates what can be
+checked today from what genuinely cannot.
+
+- **2.5a, today — content test.** Read `skills/drill/SKILL.md` directly from the working
+  tree and run a drill by following its instructions, on a Swiggy-style RCA prompt. It must
+  give the prompt, hold the clock, refuse to coach mid-round, then score via `red-team` per
+  D11. This tests whether the skill is any good, which is the thing that would be expensive
+  to discover on Saturday. If it explains instead of examining, the procedure is wrong, and
+  that is the fix before Saturday.
+- **2.5b, Sunday, after 4.6 has installed and verified the build.** Routing test. From
+  `~/pm-work`, ask for a drill in plain language — "drill me on an RCA round for a
+  quick-commerce company, 20 minutes" — and confirm the router reaches `drill` unprompted,
+  without the skill being named. This tests the description and the routing table, which is
+  a different failure class from the one 2.5a covers and has a different fix: `routing.md`,
+  not the skill.
+
+2.5a failing blocks Saturday. 2.5b failing blocks the release, and it is the same prompt as
+acceptance test 1 in section 6.
 
 ### Day 3, Saturday — job-side five (3 h)
 | Block | Work |
