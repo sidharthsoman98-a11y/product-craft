@@ -36,5 +36,91 @@ echo "== commands =="
 for f in commands/*.md; do grep -q '^description: ' "$f" || { note "FAIL $f: no description"; fail=1; }; done
 note "checked $(ls commands/*.md | wc -l) commands"
 
+echo "== routing coverage =="
+# Checks 1 and 2 are advisory until references/routing.md carries the line
+# "# routing-v2-complete", after which they are enforced.
+if grep -q '^# routing-v2-complete$' references/routing.md 2>/dev/null; then
+  routing_mode="FAIL"; note "mode: STRICT (routing-v2-complete present) - gaps fail the build"
+else
+  routing_mode="WARN"; note "mode: LENIENT (no routing-v2-complete marker) - gaps warn only"
+fi
+
+# The applicability table is section 3 of routing.md; skills are the first cell, backticked.
+table_skills=$(sed -n '/^## 3\. Per-skill applicability/,/^## 4\./p' references/routing.md \
+  | grep -o '^| `[a-z][a-z0-9-]*`' | tr -d '|` ' | sort -u)
+# Any backticked skill-shaped token anywhere in routing.md counts as "named".
+named_skills=$(grep -o '`[a-z][a-z0-9-]*`' references/routing.md | tr -d '`' | sort -u)
+dir_skills=$(ls -d skills/*/ 2>/dev/null | xargs -n1 basename | sort -u)
+
+# 1. every skills/ directory appears in the applicability table
+for d in $dir_skills; do
+  echo "$table_skills" | grep -qx "$d" || {
+    note "$routing_mode $d: not in the applicability table in references/routing.md"
+    [ "$routing_mode" = "FAIL" ] && fail=1
+  }
+done
+
+# 2. every skill named in routing.md exists as a directory
+for n in $named_skills; do
+  echo "$dir_skills" | grep -qx "$n" || {
+    note "$routing_mode routing.md names '$n' but skills/$n/ does not exist"
+    [ "$routing_mode" = "FAIL" ] && fail=1
+  }
+done
+note "applicability table lists $(echo "$table_skills" | grep -c .) of $(echo "$dir_skills" | grep -c .) skills"
+
+echo "== description length =="
+# 4. descriptions under 500 characters. Advisory, matching the 500-line guideline above.
+python3 - <<'PY'
+import glob, os, re
+over = 0
+for f in sorted(glob.glob("skills/*/SKILL.md")):
+    d = os.path.basename(os.path.dirname(f))
+    m = re.search(r'^description:[ ]?(.*)$', open(f, encoding='utf-8').read(), re.M)
+    n = len(m.group(1).strip()) if m else 0
+    if n >= 500:
+        print(f"  WARN {d}: description {n} chars, over the 500-character guideline")
+        over += 1
+print(f"  checked descriptions, {over} over 500 characters")
+PY
+
+echo "== description trigger collisions =="
+# 3. distinctive 3-word phrases shared by two or more descriptions. Advisory only.
+python3 - <<'PY'
+import glob, os, re, collections
+docs = {}
+for f in sorted(glob.glob("skills/*/SKILL.md")):
+    d = os.path.basename(os.path.dirname(f))
+    m = re.search(r'^description:[ ]?(.*)$', open(f, encoding='utf-8').read(), re.M)
+    docs[d] = re.findall(r"[a-z]+", (m.group(1) if m else "").lower())
+
+STOP = set("""a an the and or but of to for in on at by with from as is are was were be been
+being it its this that these those there here when where which who whom whose what how why
+if then than so such not no nor any all each every some other another into over under out
+up down about after before during while both few more most own same can could should would
+will shall may might must do does did done have has had having you your yours they them
+their we our us i me my he she his her""".split())
+# Words that are near-universal in this corpus are not distinctive. The floor of 3 keeps
+# the filter from eating the very overlap it is meant to find when the corpus is small.
+df = collections.Counter()
+for w in docs.values():
+    df.update(set(w))
+cutoff = max(3, int(len(docs) * 0.6))
+common = {w for w, c in df.items() if c >= cutoff}
+drop = STOP | common
+
+grams = collections.defaultdict(set)
+for d, words in docs.items():
+    kept = [w for w in words if w not in drop]
+    for i in range(len(kept) - 2):
+        grams[" ".join(kept[i:i+3])].add(d)
+
+hits = sorted((g, sorted(v)) for g, v in grams.items() if len(v) > 1)
+for g, v in hits:
+    print(f'  WARN shared trigger phrase "{g}": {", ".join(v)}')
+print(f"  checked {len(docs)} descriptions, {len(hits)} shared phrase(s)"
+      f"; ignored {len(drop)} common words")
+PY
+
 [ "$fail" -eq 0 ] && echo "PASS" || echo "FAILURES PRESENT"
 exit $fail
