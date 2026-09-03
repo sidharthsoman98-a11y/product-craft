@@ -85,9 +85,17 @@ Follow exactly. Every step is reversible.
 
 ```bash
 cd ~/product-craft
-git tag v1.2.0                      # rollback point
+git tag v1.2.0                      # intended as the rollback point - see the note below
 git checkout -b v2
 ```
+
+> **What the tag actually points at.** `v1.2.0` resolves to `8cc7d95`, which is `main`'s tip
+> and the commit titled "product-craft v1.1.0": its `plugin.json` reads `1.1.0` and it has no
+> `references/tooling.md`. The tag was cut *before* the v1.2.0 work existed. That work — the
+> tooling reference and the document-generation routing by environment — landed as `1e97970`,
+> two commits after the branch point, and so lives only on `v2` and is covered by no tag.
+> The tag therefore labels the v1.1.0 tree as v1.2.0, and `git checkout v1.2.0` is not a
+> rollback to v1.2.0. Retag or leave it, but do not trust the name.
 
 Rules:
 - One commit per skill or per file change. Never batch.
@@ -99,7 +107,14 @@ Rules:
 - The plugin stays installed from `main` while you build on `v2`. Nothing you do can break
   a working setup mid-week.
 - Merge to `main` only after the Sunday acceptance test passes.
-- Rollback at any point: `git checkout main` and the installed plugin is untouched.
+- Rollback, accurately. The installed plugin is a pinned cache copy at `8cc7d95` and is
+  untouched by any of these, so none of them can break a working setup mid-week:
+  - `git checkout main` — or `git checkout v1.2.0`, which is the same commit — lands on
+    **v1.1.0**. This discards the v2 work *and* v1.2.0, since v1.2.0 was never on `main`.
+  - `git checkout 1e97970` is the only way back to the v1.2.0 state: v1.1.0 plus the tooling
+    reference and the document-generation routing, without any v2 work.
+  - There is no rollback that keeps v1.2.0 and discards only part of v2. Reach for
+    `git revert` on individual v2 commits instead.
 
 Extend `validate.sh` with four new checks before writing any skill:
 1. Every skill directory appears in `routing.md`'s applicability table. Catches a skill the

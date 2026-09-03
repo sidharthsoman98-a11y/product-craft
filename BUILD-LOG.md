@@ -33,5 +33,10 @@ steps that need the router are marked for Sunday and cannot be ticked early.
 - [ ] 4.2 role-lens
 - [ ] 4.3 routing.md rewrite + orchestrate update
 - [ ] 4.4 deletions, run to craft rename, templates, rubric gates
+- [ ] 4.4a delegation rewrites (plan section 2, items 3 and 4): prototype-build hands UI
+      mechanics to frontend-design; artefact-forge hands deck mechanics to frontend-slides
+      and theme-factory; artefact-recipes.md aligns. external-skills.md already promises
+      these handoffs in its "Called by" column, so until this lands the map claims a
+      delegation neither skill performs
 - [ ] 4.5 plugin hygiene
 - [ ] 4.6 evals, v2.0.0, merge to main

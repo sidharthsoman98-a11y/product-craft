@@ -8,7 +8,7 @@ Amend a row rather than silently reversing it.
 |---|---|---|---|---|
 | D1 | Role pack content | Public sources only — written from published job descriptions and interview reports, not personal experience | Keeps the pack shareable and unblocked; personal depth belongs in the private overlay plugin (D7) | 2026-09-03 |
 | D2 | Coverage ledger scope | Scoped to the mode's candidate skills, not all 24 every time | An exhaustive ledger stops being read, and a ledger nobody reads cannot audit anything | 2026-09-03 |
-| D3 | rca | Split into its own skill; the diagnosis section in metric-architecture is replaced with a one-line handover to `rca`, not deleted leaving nothing | One home for the method. Both skills read the diagnostic playbook in `references/metric-library.md` | 2026-09-03 |
+| D3 | rca | Split into its own skill; the diagnosis section in metric-architecture is replaced with a one-line handover to `rca`, not deleted leaving nothing | One home for the method, and one reader of it: `rca` loads the diagnostic playbook in `references/metric-library.md`, and `metric-architecture` no longer has a step that reaches it | 2026-09-03 |
 | D4 | Drill scoring | Score plus trend across stored runs in the workspace | Recurring failures matter more than any single score | 2026-09-03 |
 | D5 | Knowledge staleness | Facts in `knowledge/` carry a date; anything over 90 days is flagged at read time | Payments regulation moves quarterly | 2026-09-03 |
 | D6 | Ambiguous mode | Ask once, in one line, then proceed | — | 2026-09-03 |

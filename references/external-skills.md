@@ -68,9 +68,9 @@ question is what should exist, do not.
 Two follow-ons worth stating, because they are where the boundary actually gets tested:
 
 - **A metric that moved is neither of these.** It is `rca`. `metrics-review` will surface
-  that a number moved; the diagnosis belongs to `rca`, which is why the diagnosis section
-  was removed from `metric-architecture` entirely (D3). All three read the diagnostic
-  playbook in `references/metric-library.md`.
+  that a number moved; the diagnosis belongs to `rca`, which is why the diagnosis section in
+  `metric-architecture` is now a one-line handover rather than a method (D3). The diagnostic
+  playbook in `references/metric-library.md` has exactly one reader: `rca`.
 - **A review that concludes the metric set is wrong** hands back to `metric-architecture`.
   That handoff is common and should be made explicitly rather than by quietly redesigning
   the tree inside a review.
