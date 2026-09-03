@@ -29,6 +29,16 @@ consistency checks passed, 120-second version written.
 arithmetically consistent, at least one instrumentation failure mode named, decision rule
 pre-registered.
 
+**RCA or incident report**: fact base established before any hypothesis was offered —
+metric, definition, denominator, magnitude, window and baseline all stated; measurement
+ruled out explicitly rather than assumed away, with raw event volume checked before the
+rate; the isolating cut named, not a list of cuts that could have been run; mix versus rate
+tested by reweighting to the prior period; mechanism stated as a falsifiable claim with the
+one query or test that would disprove it; the ruled-out list present, since it is the
+evidence of method and the part an evaluator scores; cost of delay stated in money where
+possible. An inconclusive diagnosis that names the one resolving query passes this gate. A
+confident diagnosis that skipped step 1 does not.
+
 **Case or assignment**: assumptions labelled and sourced, answer stated first,
 sensitivity on the two decisive variables, recommendation with an owner and a first
 milestone, what would change my mind.
