@@ -24,13 +24,17 @@ Mermaid patterns.
 
 - Diagrams: Mermaid inside the markdown document by default. Only produce an image when the
   destination cannot render Mermaid.
-- Spreadsheets: use the xlsx skill. Assumptions on their own tab, inputs colour-coded, no
-  hardcoded numbers inside formulas, one output tab a reader can follow unaided.
-- Decks: use the pptx skill when a file is required, or an HTML deck when it will be
-  presented from a browser. One message per slide, stated as a sentence in the title.
-  Fifteen slides maximum for thirty minutes, plus an appendix answering the four questions
-  you expect to be asked.
-- Documents: markdown by default, docx only when the recipient expects Word.
+- Spreadsheets: assumptions on their own tab, inputs colour-coded, no hardcoded numbers
+  inside formulas, one output tab a reader can follow unaided. Build with `openpyxl` in
+  Claude Code, or the xlsx skill in claude.ai; see `../../references/tooling.md`.
+- Decks: an HTML deck by default, since it is faster to change and can be deployed as a
+  link. Produce a `.pptx` only when a file is demanded, via `python-pptx` in Claude Code or
+  the pptx skill in claude.ai; see `../../references/tooling.md`. One message per slide,
+  stated as a sentence in the title. Fifteen slides maximum for thirty minutes, plus an
+  appendix answering the four questions you expect to be asked.
+- Documents: markdown by default. Produce Word or PDF only when the recipient requires it,
+  via `python-docx` or `pandoc` in Claude Code, or the docx skill in claude.ai; see
+  `../../references/tooling.md`.
 - Wireframes: a single HTML file with Tailwind from a CDN, no build step. Faster to produce
   and to change than a design tool, and it can be deployed as a link.
 - Competitive matrices must include a row for what nobody currently does. That row is

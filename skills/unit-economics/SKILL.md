@@ -42,10 +42,15 @@ for the archetype spine so the cost drivers match the actual physics of the busi
 
 ## When to build a spreadsheet
 
-If the numbers need to be inspected, changed or handed over, build one with the xlsx skill:
-one tab of assumptions with colour-coded inputs, one tab of calculation, one tab of outputs
-and sensitivity. No hardcoded numbers inside formulas. Otherwise keep it in a markdown
-table, which is faster to read in an interview.
+If the numbers need to be inspected, changed or handed over, build one: one tab of
+assumptions with colour-coded inputs, one tab of calculation, one tab of outputs and
+sensitivity. Write real formulas, never hardcoded numbers, so a reader can change an input
+and watch the model respond. Generate with `openpyxl` in Claude Code, or the xlsx skill in
+claude.ai; `../../references/tooling.md` says which applies where.
+
+Otherwise keep it in a markdown table, which is faster to read in an interview and is the
+right default. A spreadsheet is for numbers someone will change, not for numbers someone
+will read.
 
 ## Output
 

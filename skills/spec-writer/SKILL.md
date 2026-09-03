@@ -58,5 +58,6 @@ what was fixed. Score against `../../references/rubrics.md`.
 
 ## Output
 
-Markdown by default. Use the docx skill only if the recipient expects a Word document. Use
-`../../templates/prd.md` or `../../templates/prfaq.md`.
+Markdown by default. Produce Word or PDF only when the recipient requires that format, via
+`python-docx` or `pandoc` in Claude Code, or the docx skill in claude.ai; see
+`../../references/tooling.md`. Use `../../templates/prd.md` or `../../templates/prfaq.md`.
