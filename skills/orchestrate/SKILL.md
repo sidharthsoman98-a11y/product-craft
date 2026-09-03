@@ -1,6 +1,6 @@
 ---
 name: orchestrate
-description: Plan and run a complete product workflow end to end, selecting which product-craft skills apply, sequencing them by dependency, enforcing quality gates and proving coverage before anything is delivered. Use this at the start of any substantial product task - a teardown, a case, an assignment, a new product concept, a strategy question or a prototype - and whenever someone asks for a full or thorough treatment, mentions a deadline, or wants to be sure nothing was skipped. Prefer this over invoking a single analysis skill directly when the request could reasonably need more than one.
+description: Plan and run a complete product workflow end to end, selecting which product-craft skills apply, sequencing them by dependency, enforcing quality gates and proving coverage before anything is delivered. This is the entry point for any substantial product task - a teardown, a case, an assignment, a new concept, a strategy question or a prototype - including one with a deadline, where it invokes interview-sprint to hold the clock. Prefer it over a single skill when more than one may apply.
 ---
 
 # Orchestrate
@@ -26,6 +26,13 @@ Sequence: skill → skill → skill → red-team
 Skipping now: <skill> (<which applicability test failed>)
 Gates: G1 ... G7
 ```
+
+**If there is a deadline, invoke `interview-sprint` before anything else.** This skill is
+the entry point and owns the routing; `interview-sprint` owns the clock, and it sets the
+depth of every step that follows, so it cannot be applied retrospectively to work already
+done at the wrong depth. Hand it the classified scenario and the deliverable, take back the
+time-boxed plan, and run the sequence inside it. Neither skill is the other's step: routing
+and scheduling are separate jobs on the same run.
 
 Ask for confirmation only when the classification is genuinely ambiguous or the deliverable
 is unclear. Otherwise state the reading and proceed; a plan that arrives with the work is

@@ -1,6 +1,6 @@
 ---
 name: product-teardown
-description: Run a rigorous nine-layer teardown of any product or feature, covering objective function, unit economics, market structure, segments, core loop, experience walkthrough, opportunities, refusals and measurement. Use this whenever someone asks to break down, analyse, critique, evaluate, review or improve a product, app or feature, whenever they name a product and ask what they would change, whenever they mention a product teardown or product case, and whenever a product analysis is needed for an interview, assignment or case study, even if they do not use the word teardown.
+description: Run a rigorous nine-layer teardown of a product in the market, covering objective function, unit economics, market structure, segments, core loop, experience walkthrough, opportunities, refusals and measurement. Use this whenever someone names a shipped product or feature and asks to break it down, analyse it or say what they would change, mentions a teardown or case, or needs one for an interview or assignment. The object is a product in the market; to attack a deliverable, use red-team.
 ---
 
 # Product teardown

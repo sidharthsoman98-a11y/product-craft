@@ -1,6 +1,6 @@
 ---
 name: red-team
-description: Attack a product answer, document, prototype or presentation the way a hostile interviewer or a sceptical executive would, then score it and name the single highest-leverage fix. Use this whenever someone asks for feedback, a critique, a review, a sanity check, wants to know what is wrong with their answer, asks how an interviewer would attack it, or has just finished any deliverable that will be evaluated by someone else.
+description: Attack a finished deliverable - an answer, document, prototype or presentation the user or their team produced - the way a hostile interviewer or a sceptical executive would, then score it and name the single highest-leverage fix. Use this whenever someone asks for feedback, a critique or a sanity check on their own work, or asks how an interviewer would attack it. The object is a deliverable under evaluation; to analyse a product in the market, use product-teardown.
 ---
 
 # Red team

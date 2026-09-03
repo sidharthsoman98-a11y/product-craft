@@ -1,6 +1,6 @@
 ---
 name: interview-sprint
-description: Orchestrate a complete product assignment under a deadline - a take-home case, a one-day product exercise, a hackathon brief or a panel presentation - sequencing analysis, decisions, prototype, artefacts and rehearsal against the clock with explicit gates. Use this whenever someone has a product assignment with a deadline, says they have a day or a few hours to produce a case, teardown, prototype or presentation, asks how to plan or approach a take-home, or is preparing a submission for an interview round.
+description: Hold the clock on a product assignment under a deadline - a take-home case, a one-day exercise, a hackathon brief or a panel presentation - time-boxing analysis, decisions, prototype, artefacts and rehearsal against explicit gates. Normally invoked by orchestrate, which owns the routing while this skill owns the schedule inside it. Use directly when someone asks how to plan or approach a take-home, or says they have a day or a few hours to produce a case, teardown or presentation.
 ---
 
 # Interview sprint

@@ -1,6 +1,6 @@
 ---
 name: decision-forensics
-description: Reverse-engineer why a product team made a specific decision, reconstruct the alternatives they weighed, and simulate what would have happened had they chosen differently, including second-order effects. Use this whenever someone asks why a company built something a certain way, why a feature works like that, what would have happened if they had done X instead, whether a decision was right, or asks a counterfactual, hindsight or post-mortem question about a shipped product or a strategic choice.
+description: Reverse-engineer why a product team made a specific decision, reconstruct the alternatives they weighed, and simulate what would have happened had they chosen differently, including second-order effects. Use this whenever someone asks why a company built something a certain way, why a feature works like that, what would have happened if they had done X instead, whether a decision was right, or asks a counterfactual or hindsight question about a shipped product or a strategic choice.
 ---
 
 # Decision forensics
