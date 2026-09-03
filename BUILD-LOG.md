@@ -3,7 +3,7 @@ Rule: tick a box only after that step's commit lands. Uncommitted work does not 
 
 ## Day 1 — foundations
 - [ ] 1.1 branch, plan, log
-- [ ] 1.2 validate.sh extended with four checks
+- [x] 1.2 validate.sh extended with four checks
 - [ ] 1.3 DECISIONS.md (D1-D10)
 - [ ] 1.4 references/role-packs.md
 - [ ] 1.5 references/india-context.md
