@@ -268,6 +268,9 @@ design time, and a rollout that can be halted rather than only rolled forward.
 
 ## 5. Interview loop shape
 
+The loop shape below is drawn from published process material across comparable Indian
+payments companies rather than any single employer; specifics vary by company and charter.
+
 Reported structure [interview reports]: technical rounds in SQL and sometimes Python,
 covering window functions, joins and CTEs; guesstimates and logic puzzles; managerial case
 rounds on strategy and metrics.

@@ -137,9 +137,12 @@ Three things to fix while filling these in, not after:
 - **Rows 1 to 5 are tier 2 and archivable.** A job posting disappears when the role closes,
   so archive the page at the moment you cite it and record the archive URL alongside.
 - **Rows 6 and 7 are tier 4** and must stay described as reported. Row 7's loop evidence was
-  compiled from Paytm process material while the fintech archetype is written Razorpay-shaped
-  — either source Razorpay-specific loop evidence, or say in `role-packs.md` that the loop
-  shape is drawn from comparable payments companies. It should not silently read as Razorpay's.
+  compiled from Paytm process material while the fintech archetype is written Razorpay-shaped.
+  **Resolved:** `role-packs.md` now qualifies the fintech loop section as drawn from published
+  process material across comparable Indian payments companies rather than any single
+  employer, with specifics varying by company and charter, so it no longer reads as
+  Razorpay's. Keep that qualifier if the row's URL is later filled with a single-company
+  source, or narrow both together.
 - **Row 8 is the weakest row in the pack.** It is marked Uncertain in `role-packs.md` and
   should stay marked until a tier 2 original — an investor presentation, an annual report or
   a company blog — replaces the press coverage.
