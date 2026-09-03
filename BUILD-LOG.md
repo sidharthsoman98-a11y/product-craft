@@ -2,12 +2,12 @@
 Rule: tick a box only after that step's commit lands. Uncommitted work does not count.
 
 ## Day 1 — foundations
-- [ ] 1.1 branch, plan, log
+- [x] 1.1 branch, plan, log
 - [x] 1.2 validate.sh extended with four checks
 - [x] 1.3 DECISIONS.md (D1-D10)
 - [x] 1.4 references/role-packs.md
 - [x] 1.5 references/india-context.md
-- [ ] 1.6 references/sources.md + external-skills.md
+- [x] 1.6 references/sources.md + external-skills.md
 
 ## Day 2 — interview-critical four
 - [ ] 2.1 skills/rca + diagnosis section removed from metric-architecture
