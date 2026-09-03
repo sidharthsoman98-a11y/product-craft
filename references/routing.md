@@ -51,6 +51,11 @@ Hard rules:
 - `orchestrate` is the entry point when there is a deadline, and it invokes
   `interview-sprint` first, because the clock changes the depth of everything else.
   `interview-sprint` owns the schedule inside the run; `orchestrate` owns the routing.
+- `drill` and `red-team` are scoped by object, per D11. `drill` runs the live round, holds
+  the clock and owns calibration; `red-team` owns scoring, and `drill` calls it for the
+  scoring step rather than restating the rubric. Runs are written to `drills/` in the
+  workspace so the trend outlives any single score. `drill` lands at step 2.4; its
+  applicability row lands with it, per the registration rule in section 3.
 
 ## 2. Scenario routing table
 

@@ -27,8 +27,14 @@ Claude Code reads it automatically at the start of every session in that folder.
 cases/        one folder per case or assignment
 teardowns/    one file per product
 prototypes/   one folder per build
+drills/       one file per scored drill run
 outputs/      the assembled deliverables
 ```
+
+`drills/` is the run store. One file per round, named `<date>-<company>-<round>.md`, for
+example `2026-09-08-swiggy-rca.md`. Scores are only half of what it holds: the point is the
+trend across runs, since a failure that recurs matters more than any single score (D4).
+Read the trend before choosing what to drill next.
 
 ## When I ask for one skill directly
 

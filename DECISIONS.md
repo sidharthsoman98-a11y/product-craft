@@ -1,6 +1,6 @@
 # Build decisions — v2.0.0
 
-Ten decisions that shape the pack. Each one closed off an alternative that a future
+Eleven decisions that shape the pack. Each one closed off an alternative that a future
 contributor might otherwise reopen, so the rationale column is the point of this file.
 Amend a row rather than silently reversing it.
 
@@ -16,3 +16,4 @@ Amend a row rather than silently reversing it.
 | D8 | Command prefix | Keep `/product-craft:` | Collisions are worse than typing | 2026-09-03 |
 | D9 | Slippage | If a day slips, cut job-side skills | Protect the interview-side skills | 2026-09-03 |
 | D10 | Monday acceptance | The three prompts in `V2-BUILD-PLAN.md` section 6 | All three must pass in a fresh session | 2026-09-03 |
+| D11 | drill versus red-team | Scope by object: `drill` runs the live round, holds the clock and owns calibration; `red-team` owns scoring and is called by `drill` for its scoring step | One rubric, one scorer. A `drill` that restated the rubric would drift from it, and two scoring implementations disagree the moment either is edited. Runs are stored in `drills/` per D4 | 2026-09-03 |

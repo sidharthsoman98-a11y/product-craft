@@ -48,3 +48,8 @@ failure catalogue.
 Thesis restatement, failures present, four passes, weakest sentence, score table, verdict,
 one fix. Offer a rerun after revision, and compare against the previous score so the user
 can see whether the same failure keeps recurring. Recurring failures matter more than scores.
+
+Where the workspace has a `drills/` folder, previous scores live there, one file per run.
+Read it for the trend rather than asking the user what they scored last time. When `drill`
+calls this skill for its scoring step (D11), the score written back belongs in that run's
+file.
