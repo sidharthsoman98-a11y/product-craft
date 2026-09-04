@@ -105,6 +105,7 @@ rule is what keeps it from going stale.
 | `interview-sprint` | There is a deadline | No deadline, or the task is under thirty minutes |
 | `rca` | A number has already moved, or there is an incident to explain | Nothing has moved; the question is what to measure, which is `metric-architecture` |
 | `analytics-sql` | A number has to be computed, verified or expressed as a query, or a dashboard has to be specified | The number already exists and is trusted, or the question is what to measure (`metric-architecture`) or why it moved (`rca`), neither of which is a query job |
+| `platform-integration` | The surface between two systems is the subject — an API contract, webhooks, idempotency, reconciliation, settlement, or a partner going live | The work is decomposing a decided design into stories, which is `ticket-writer`, or ruling on a regulatory obligation, which is `compliance-guard` |
 | `marketplace-ops` | The constraint is physical rather than a funnel — supply, capacity, promise adherence, workforce tooling, or a city or zone launch | The question is a whole product across all its layers, which is `product-teardown`, or a number that has already moved, which is `rca` |
 | `drill` | A live round is wanted under time — a mock interview, a case delivered aloud, a named round type, or a company and round together | The object is a finished deliverable rather than a live performance, which is `red-team`; or a real submission is due and needs a plan first, which is `interview-sprint` |
 | `red-team` | Always | Never |
