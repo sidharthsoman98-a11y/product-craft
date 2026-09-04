@@ -17,7 +17,7 @@ steps that need the router are marked for Sunday and cannot be ticked early.
 - [x] 2.2 skills/analytics-sql
 - [ ] 2.3 skills/marketplace-ops
 - [x] 2.4 skills/drill
-- [ ] 2.5a acceptance, content: read skills/drill/SKILL.md directly and run a drill by it
+- [x] 2.5a acceptance, content: read skills/drill/SKILL.md directly and run a drill by it
 - [ ] 2.5b acceptance, routing: after 4.6 installs, ask for a drill in plain language from
       ~/pm-work and confirm the router reaches it unprompted
 
