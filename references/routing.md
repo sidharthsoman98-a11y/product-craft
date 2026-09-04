@@ -105,6 +105,7 @@ rule is what keeps it from going stale.
 | `artefact-forge` | The argument depends on a sequence, a comparison, a journey or a model | Prose carries it and a diagram would be decoration |
 | `interview-sprint` | There is a deadline | No deadline, or the task is under thirty minutes |
 | `rca` | A number has already moved, or there is an incident to explain | Nothing has moved; the question is what to measure, which is `metric-architecture` |
+| `analytics-sql` | A number has to be computed, verified or expressed as a query, or a dashboard has to be specified | The number already exists and is trusted, or the question is what to measure (`metric-architecture`) or why it moved (`rca`), neither of which is a query job |
 | `red-team` | Always | Never |
 | `orchestrate` | Routes rather than being routed. It reads this file and selects the others, so it never appears as a row in a coverage ledger and never has a skip test | — |
 
