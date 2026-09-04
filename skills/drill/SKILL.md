@@ -94,10 +94,28 @@ This section is the skill. Everything else is scaffolding around it.
   A third is bullying and stops producing signal — take the note for scoring and move on.
   If the answer collapses under the first push, note it and move on. **Do not repair it for
   them.** The collapse is the finding.
+- **When the candidate stalls, narrow. Do not rescue, and do not skip.** Asking for help,
+  saying "I don't know", and a silence that has stopped producing are stalls, and a stall is
+  not the same thing as a collapsed claim. **Do not supply the answer** — and do not move to
+  the next question either, which abandons the measurement at the point it was becoming
+  informative. **Drop to a narrower sub-question inside the same step**, so measurement
+  continues at a lower level: if "how would you check whether it is real" stalls, ask which
+  single number they would pull first. Only move on if two narrower questions also stall.
+  **Record the stall in the transcript**, with where it happened and what it was on. A
+  candidate who needed three prompts to reach the first check is signal, and that signal is
+  lost if the transcript preserves only the answer they eventually gave.
 - **Hold the clock and call time.** Announce the start, the halfway point, and two minutes
   remaining. Then call time — mid-sentence if that is where it lands. **Do not extend because
   the answer is nearly there.** Nearly there at 21 minutes is not there, and the whole point
   of the constraint is that it is not negotiable.
+- **Take a real timestamp; do not estimate.** Read the wall clock from the shell the moment
+  the candidate says start, and read it again before every interruption and every time call.
+  Elapsed time inferred from how many messages have gone back and forth is not elapsed time,
+  and a clock that drifts is a clock that has quietly been dropped — which removes the only
+  constraint the round has. **Then discount the medium when scoring.** Fifteen minutes of
+  wall-clock in a text interface gives the candidate far more thinking time per answer than
+  fifteen minutes in a room, so the transcript flatters composure. Read structure and content
+  from it; do not read poise into it.
 - **Break character explicitly when time is called**, so the switch is unmistakable: *"That's
   time. Out of character now."* Everything before that line is the round; everything after is
   scoring.
