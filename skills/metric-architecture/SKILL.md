@@ -1,6 +1,6 @@
 ---
 name: metric-architecture
-description: Design a complete metric system for a product or feature - value primitive, north star with selection tests, input tree, guardrails, event instrumentation, SQL, experiment design and pre-registered decision rules. Use this whenever someone asks how to measure something, what metrics to track, how a metric is defined or calculated, how to tell if a feature worked, how to design an A/B test, or what the north star should be, and use it as a matter of course for any product analysis that will need a measurement section.
+description: Design a complete metric system for a product or feature - value primitive, north star with selection tests, input tree, guardrails, event instrumentation, experiment design and pre-registered decision rules. Use this whenever someone asks how to measure something, what metrics to track, how a metric is defined or calculated, how to tell if a feature worked, how to design an A/B test, or what the north star should be, and use it as a matter of course for any product analysis that will need a measurement section.
 ---
 
 # Metric architecture

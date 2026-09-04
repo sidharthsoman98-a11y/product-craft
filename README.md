@@ -34,7 +34,7 @@ when you want to invoke one deliberately.
 | Skill | Command | Does |
 |---|---|---|
 | `product-teardown` | `/teardown` | Nine-layer teardown where each layer constrains the next |
-| `metric-architecture` | `/metrics` | Value primitive, north star with six tests, tree, instrumentation, SQL, experiment, decision rules |
+| `metric-architecture` | `/metrics` | Value primitive, north star with six tests, tree, instrumentation, experiment, decision rules |
 | `decision-forensics` | `/why` | Why a team decided what they did, and what the counterfactual would have cost |
 | `unit-economics` | `/economics` | Contribution stack, cohort payback, break-even, sensitivity |
 | `market-sizing` | | Bottom-up and top-down estimates with reconciliation and sense-checks |
