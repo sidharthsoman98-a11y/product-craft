@@ -77,6 +77,7 @@ Nothing below is decided by the build. Each is asked, answered, and recorded in
 | D9 | Sequence if a day slips | Cut job-side / cut interview-side | Cut job-side. Interviews come first, job skills can land the following week |
 | D10 | Monday acceptance | Define what "ready" means | Section 6 |
 | D11 | `drill` versus `red-team` scoring | `drill` restates the rubric / `drill` calls `red-team` for its scoring step | Call `red-team`. One rubric, one scorer: two implementations disagree the moment either is edited |
+| D12 | Two skills touching one artefact | Remove the step from the upstream skill / keep it and delegate the work | Keep and delegate. Unlike D3, the jobs differ: deciding what a query must return is metric design, writing and proving it is analytics |
 
 ---
 

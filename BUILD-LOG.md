@@ -7,7 +7,7 @@ steps that need the router are marked for Sunday and cannot be ticked early.
 ## Day 1 — foundations
 - [x] 1.1 branch, plan, log
 - [x] 1.2 validate.sh extended with four checks
-- [x] 1.3 DECISIONS.md (D1-D10)
+- [x] 1.3 DECISIONS.md
 - [x] 1.4 references/role-packs.md
 - [x] 1.5 references/india-context.md
 - [x] 1.6 references/sources.md + external-skills.md

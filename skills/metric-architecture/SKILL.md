@@ -33,8 +33,11 @@ test design. Load `../../references/economics-library.md` when the metric touche
 6. **Instrumentation.** For the two most important leaves: event name, properties, client
    or server and why, identity handling, and the specific failure mode that would corrupt
    it. Anything financial is server-side; say so and say why.
-7. **SQL.** Write the query for those two leaves. State the window and define the
-   denominator explicitly. Denominator ambiguity is where most metric conversations break.
+7. **The query for those two leaves.** State what each query has to return, define the
+   denominator explicitly, and fix the window. Denominator ambiguity is where most metric
+   conversations break, and settling it is part of designing the metric. **Do not write the
+   SQL here.** Writing and verifying it is `analytics-sql` (D12): hand over the purpose, the
+   denominator and the window, and take back the query and the checks that confirm it.
 8. **Experiment design.** Unit of randomisation, primary metric, MDE argued from the
    business, duration covering a full cycle, guardrails, and what makes a simple A/B
    invalid here (interference, small N, long horizon, rare events).

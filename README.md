@@ -3,7 +3,7 @@
 A Claude Code plugin for doing product management work properly, and for surviving PM and
 APM interview loops where a full case has to be turned around in a day.
 
-Fifteen skills, fourteen reference libraries and ten slash commands covering the two halves
+Sixteen skills, fourteen reference libraries and ten slash commands covering the two halves
 of the job: taking products apart, and putting new ones together, plus an orchestrator that
 routes between them and proves coverage before anything is delivered.
 
@@ -39,6 +39,7 @@ when you want to invoke one deliberately.
 | `unit-economics` | `/economics` | Contribution stack, cohort payback, break-even, sensitivity |
 | `market-sizing` | | Bottom-up and top-down estimates with reconciliation and sense-checks |
 | `rca` | | Diagnose a metric that moved or a production incident: fact base, ruled out, isolating cut, falsifiable mechanism |
+| `analytics-sql` | | Query patterns, the errors that return a plausible wrong number, verification before a number ships, and the technical analytics round |
 
 **Building**
 

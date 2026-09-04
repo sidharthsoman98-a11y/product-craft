@@ -1,6 +1,6 @@
 # Build decisions — v2.0.0
 
-Eleven decisions that shape the pack. Each one closed off an alternative that a future
+Twelve decisions that shape the pack. Each one closed off an alternative that a future
 contributor might otherwise reopen, so the rationale column is the point of this file.
 Amend a row rather than silently reversing it.
 
@@ -17,3 +17,4 @@ Amend a row rather than silently reversing it.
 | D9 | Slippage | If a day slips, cut job-side skills | Protect the interview-side skills | 2026-09-03 |
 | D10 | Monday acceptance | The three prompts in `V2-BUILD-PLAN.md` section 6 | All three must pass in a fresh session | 2026-09-03 |
 | D11 | drill versus red-team | Scope by object: `drill` runs the live round, holds the clock and owns calibration; `red-team` owns scoring and is called by `drill` for its scoring step | One rubric, one scorer. A `drill` that restated the rubric would drift from it, and two scoring implementations disagree the moment either is edited. Runs are stored in `drills/` per D4 | 2026-09-03 |
+| D12 | Two skills touching one artefact | The artefact is owned by the skill whose job it is, and the other states its requirements and delegates: `metric-architecture` step 7 gives the query's purpose, denominator and window, and `analytics-sql` writes and verifies it | Contrast D3. There, two skills claimed the *same* job and the duplicate was removed. Here the jobs differ — deciding what a query must return is metric design, writing and proving it is analytics — so the step stays and only the work moves. Deleting the step would lose the denominator ruling the design owes; leaving the SQL in it would put two implementations of one query in the pack | 2026-09-04 |
