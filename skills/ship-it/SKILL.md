@@ -8,6 +8,12 @@ description: Get a prototype from a local folder to a public URL - git repositor
 Getting to a URL is a five-minute job when it goes well and a two-hour job when it does not.
 The difference is doing it early. Deploy a skeleton at the halfway mark, then keep pushing.
 
+**This skill is deployment mechanics for a prototype, and it ends at a working URL.** Taking
+a built feature to real users — readiness gates, staged rollout, kill switches, day-one
+monitoring, comms and the post-launch decision — is `launch-plan`. The boundary is the
+object, not the size of the change: a prototype going live for one reviewer is this skill,
+and a feature reaching customers is that one.
+
 ## Prerequisites check
 
 Verify before starting, and tell the user exactly what to install if something is missing:
