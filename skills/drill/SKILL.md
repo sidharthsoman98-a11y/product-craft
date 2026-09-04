@@ -157,13 +157,25 @@ padding it here undoes that.
 
 ## 6. Trend
 
-Write the run to `drills/<date>-<company>-<round>.md` in the workspace — for example
-`drills/2026-09-08-swiggy-rca.md` — holding the prompt, the transcript, the score table, the
+Write the run to `drills/<date>-<company>-<round>-<n>.md` in the workspace — for example
+`drills/2026-09-08-swiggy-rca-1.md` — holding the prompt, the transcript, the score table, the
 verdict, the weakest sentence, the one fix, and the failure named by its catalogue name so it
 is comparable across runs.
 
+**`<n>` is the run index, starting at 1**, and it is not optional. A second round on the same
+day, against the same company and the same round type, is exactly the case a trend store
+exists to capture — two attempts at one thing is the most informative pair in the folder.
+Without the index the second run overwrites the first silently, destroying the comparison it
+was run to produce. Check the folder for existing runs matching the date, company and round,
+and take the next index.
+
 Then **read the other files in `drills/` and compare.** Report whether the same failure is
 recurring, naming it, with the dates it appeared on.
+
+**Report any dimension that scored 1 in consecutive runs as a recurring failure, by name**,
+even when the mean has improved and even when the weakest sentence was different each time.
+A rising mean with the same dimension stuck at 1 is the most misleading shape a trend can
+take: it reads as progress while the thing that produces the verdict has not moved.
 
 **A recurring failure matters more than any single score (D4).** Three rounds scored 3 with
 the same weakest sentence each time is a worse position than one round scored 2, because the

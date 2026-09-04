@@ -31,8 +31,10 @@ drills/       one file per scored drill run
 outputs/      the assembled deliverables
 ```
 
-`drills/` is the run store. One file per round, named `<date>-<company>-<round>.md`, for
-example `2026-09-08-swiggy-rca.md`. Scores are only half of what it holds: the point is the
+`drills/` is the run store. One file per round, named `<date>-<company>-<round>-<n>.md`,
+where `<n>` is the run index starting at 1 — for example `2026-09-08-swiggy-rca-1.md`. The
+index is what stops a second round on the same day, company and round type from overwriting
+the first, which would delete the most informative comparison the folder can hold. Scores are only half of what it holds: the point is the
 trend across runs, since a failure that recurs matters more than any single score (D4).
 Read the trend before choosing what to drill next.
 
