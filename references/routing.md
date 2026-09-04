@@ -54,8 +54,7 @@ Hard rules:
 - `drill` and `red-team` are scoped by object, per D11. `drill` runs the live round, holds
   the clock and owns calibration; `red-team` owns scoring, and `drill` calls it for the
   scoring step rather than restating the rubric. Runs are written to `drills/` in the
-  workspace so the trend outlives any single score. `drill` lands at step 2.4; its
-  applicability row lands with it, per the registration rule in section 3.
+  workspace so the trend outlives any single score.
 
 ## 2. Scenario routing table
 
@@ -106,6 +105,7 @@ rule is what keeps it from going stale.
 | `interview-sprint` | There is a deadline | No deadline, or the task is under thirty minutes |
 | `rca` | A number has already moved, or there is an incident to explain | Nothing has moved; the question is what to measure, which is `metric-architecture` |
 | `analytics-sql` | A number has to be computed, verified or expressed as a query, or a dashboard has to be specified | The number already exists and is trusted, or the question is what to measure (`metric-architecture`) or why it moved (`rca`), neither of which is a query job |
+| `drill` | A live round is wanted under time — a mock interview, a case delivered aloud, a named round type, or a company and round together | The object is a finished deliverable rather than a live performance, which is `red-team`; or a real submission is due and needs a plan first, which is `interview-sprint` |
 | `red-team` | Always | Never |
 | `orchestrate` | Routes rather than being routed. It reads this file and selects the others, so it never appears as a row in a coverage ledger and never has a skip test | — |
 
