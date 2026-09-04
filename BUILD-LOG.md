@@ -26,7 +26,7 @@ steps that need the router are marked for Sunday and cannot be ticked early.
 - [x] 3.2 compliance-guard
 - [x] 3.3 ticket-writer
 - [x] 3.4 experiment-readout
-- [ ] 3.5 launch-plan
+- [x] 3.5 launch-plan
 
 ## Day 4 — wiring and release
 - [ ] 4.1 evidence-ledger
