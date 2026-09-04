@@ -22,7 +22,7 @@ steps that need the router are marked for Sunday and cannot be ticked early.
       ~/pm-work and confirm the router reaches it unprompted
 
 ## Day 3 — job-side five
-- [ ] 3.1 platform-integration
+- [x] 3.1 platform-integration
 - [ ] 3.2 compliance-guard
 - [ ] 3.3 ticket-writer
 - [ ] 3.4 experiment-readout
