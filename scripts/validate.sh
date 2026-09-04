@@ -32,6 +32,57 @@ grep -oh '\.\./\.\./templates/[a-z-]*\.md' skills/*/SKILL.md | sort -u | while r
 done || fail=1
 note "reference and template links resolve"
 
+echo "== section pointers =="
+# A pointer to a section that does not exist is always a defect, so this fails the build.
+# Matches "<file>.md ... section N" and the reversed "section N of <file>.md", across line
+# breaks since references wrap, and expands plurals ("sections 1, 2 and 5") to each number.
+python3 - <<'SECPY' || fail=1
+import glob, os, re, sys
+
+NUM = r"\d+(?:\.\d+)?"
+FORWARD = re.compile(
+    r"([A-Za-z0-9_-]+\.md)`?((?:(?!\.md)[^\n]){0,70}?)\bsections?\s+"
+    r"(" + NUM + r"(?:\s*(?:,|and)\s*" + NUM + r")*)", re.I)
+REVERSED = re.compile(
+    r"\bsections?\s+(" + NUM + r")\s+(?:of|in)\s+`?([A-Za-z0-9_./-]+\.md)", re.I)
+
+def resolve(name):
+    base = os.path.basename(name)
+    for cand in (os.path.join("references", base), base, os.path.join("templates", base)):
+        if os.path.isfile(cand):
+            return cand
+    return None
+
+def sections(path):
+    found = set()
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            m = re.match(r"#{1,6}\s+(" + NUM + r")[.)]?\s", line)
+            if m:
+                found.add(m.group(1))
+    return found
+
+cache, bad, checked = {}, 0, 0
+for f in sorted(glob.glob("skills/*/SKILL.md") + glob.glob("references/*.md")):
+    flat = re.sub(r"\s+", " ", open(f, encoding="utf-8").read())
+    hits = [(m.group(1), n) for m in FORWARD.finditer(flat)
+            for n in re.findall(NUM, m.group(3))]
+    hits += [(m.group(2), m.group(1)) for m in REVERSED.finditer(flat)]
+    for name, num in hits:
+        target = resolve(name)
+        if target is None:
+            continue  # missing files belong to the reference-link check above
+        if target not in cache:
+            cache[target] = sections(target)
+        checked += 1
+        if num not in cache[target]:
+            print("  FAIL " + f + ": points at " + os.path.basename(target)
+                  + " section " + num + ", which does not exist")
+            bad += 1
+print("  checked " + str(checked) + " section pointers, " + str(bad) + " broken")
+sys.exit(1 if bad else 0)
+SECPY
+
 echo "== commands =="
 for f in commands/*.md; do grep -q '^description: ' "$f" || { note "FAIL $f: no description"; fail=1; }; done
 note "checked $(ls commands/*.md | wc -l) commands"
