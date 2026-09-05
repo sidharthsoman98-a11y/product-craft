@@ -26,9 +26,18 @@ costs context on every session and returns nothing the pack does not already do 
 
 If one of these fires anyway, the fix is the plugin configuration, not a note in a skill file.
 
+**Verified state, 2026-09-05, step 4.5.** `claude plugin list` reports one installed plugin:
+`product-craft@product-craft` v1.1.0, user scope, enabled. **Neither `product-management` nor
+`common-room` is installed or enabled in this environment**, and neither appears in either
+configured marketplace. There was nothing to disable. The rows above stand as instruction for
+an environment that has them, not as a record of an action taken here — a distinction worth
+keeping, because a map that reads as "already handled" stops being checked.
+
 ## 2. Keep and delegate to
 
-Available, not rebuilt here, and to be handed work rather than duplicated.
+Available in principle, not rebuilt here, and to be handed work rather than duplicated.
+**None of them is installed in this Claude Code environment as of 2026-09-05** — see section
+4 — so every row below is a delegation to check before promising, per section 5.
 
 | Delegate to | For | Called by |
 |---|---|---|
@@ -100,6 +109,15 @@ The reverse also holds: `ship-it`, `prototype-build` and anything else needing s
 a deploy cannot run in claude.ai chat. Say so rather than producing a plan the environment
 cannot execute.
 
+**Installed-plugin state, checked 2026-09-05.** The only installed plugin is this pack. Of
+the section 2 delegation targets, `frontend-design` and `skill-creator` exist in the
+`claude-plugins-official` marketplace and can be installed with `claude plugin install`; the
+rest — `frontend-slides`, `theme-factory`, `web-artifacts-builder`, `stakeholder-update`,
+`sprint-planning`, `roadmap-update`, `metrics-review`, `productivity:task-management` — were
+not found in either configured marketplace and may be claude.ai-side. **Until they are
+installed, section 5's absent-skill rule is the live path, not the exception**: name what is
+missing and say the pack is standing in.
+
 ## 5. How to delegate in practice
 
 - **Name the skill explicitly** in the handoff, so the router has something to match on.
@@ -117,3 +135,25 @@ cannot execute.
   pack skill means that skill hands the work over in its own text. If it does not, the row
   is wrong and the map is overstating what the pack does — which is what F3 and F18 were.
   Fix the column or fix the skill; do not leave them disagreeing.
+
+## 6. Collisions outside this map, found at 4.5
+
+These are not plugins and cannot be disabled with `claude plugin disable`: they are
+user-level skills in `~/.claude/skills/` and skills bundled with Claude Code. They load
+regardless. **The boundary is the object, and it is stated here so the router has something
+to separate them on.**
+
+| External | Collides with | The boundary |
+|---|---|---|
+| `gstack:spec` | `spec-writer` | `gstack:spec` turns intent into an executable engineering spec. `spec-writer` writes the product document — PRD, PRFAQ, one-pager — and critiques it against what gets specs rejected. Engineering execution versus product argument |
+| `gstack:investigate` | `rca` | **The sharpest of these.** Both own "root cause". `gstack:investigate` debugs code. `rca` diagnoses a moved product metric and requires a fact base — metric, definition, denominator, magnitude, window, baseline. A failing test is not an RCA round |
+| `gstack:ship`, `gstack:land-and-deploy` | `ship-it` | Both answer to "ship". The gstack skills run a repository workflow — tests, version bump, changelog, PR, deploy. `ship-it` takes a prototype to a public URL for someone to look at. Neither is `launch-plan`, which is product rollout |
+| `gstack:diagram`, bundled `dataviz`, bundled `design` | `artefact-forge` | `artefact-forge` decides which artefact carries the argument and what it must show. These render it. The same delegate-do-not-reimplement rule in section 2 applies, and they are the better tools once the decision is made |
+| `gstack:make-pdf` | `artefact-forge` binary output | A real route to a PDF in Claude Code, where section 4 says the bundled `pdf` skill does not exist |
+| Bundled `run` | the old `/run` command | This was the collision plan item 7 named. Resolved by renaming the command to `/craft`; the bundled skill keeps `run` |
+
+Two things follow. **`claude plugin disable` is per plugin, not per skill** — there is no
+per-skill switch in the plugin CLI — so none of these can be turned off individually; the
+boundary above is the only control. And a skill that shares a trigger word with a pack skill
+is the failure class the validator's phrase check cannot see, which is why each row names the
+object rather than the topic.
