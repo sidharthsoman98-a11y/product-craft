@@ -63,9 +63,9 @@ when you want to invoke one deliberately.
 
 | Skill | Command | Does |
 |---|---|---|
-| `orchestrate` | `/run` | Classifies the request, sequences the other skills by dependency, enforces seven gates, and prints a coverage ledger with a row per candidate skill: applied, considered-and-skipped with the failed test named, or deferred |
+| `orchestrate` | `/craft` | Classifies the request, sequences the other skills by dependency, enforces seven gates, and prints a coverage ledger with a row per candidate skill: applied, considered-and-skipped with the failed test named, or deferred |
 
-`/run` is the default entry point for anything substantial. The individual commands are for
+`/craft` is the default entry point for anything substantial. The individual commands are for
 when you already know which instrument you want.
 
 ## Reference libraries
@@ -108,7 +108,7 @@ Skills load these on demand rather than carrying everything in context.
 ```
 theme or brief
    |
-/run .................... routes the work and enforces the gates
+/craft .................. routes the work and enforces the gates
    |
 /sprint ................. holds the clock when there is a deadline
    |
