@@ -119,6 +119,7 @@ rule is what keeps it from going stale.
 | `drill` | A live round is wanted under time — a mock interview, a case delivered aloud, a named round type, or a company and round together | The object is a finished deliverable rather than a live performance, which is `red-team`; or a real submission is due and needs a plan first, which is `interview-sprint` |
 | `evidence-ledger` | A fact about a named company, market or regulation is needed, or a run has learned one worth keeping | The only claims involved are structural rather than about a named party — the exempt class in `sources.md` section 3 — so there is nothing to store or retrieve |
 | `red-team` | Always | Never |
+| `role-lens` | Establishes context rather than being routed to. It runs before the sequence and fixes archetype, mode and time budget, so it never appears as a row in a coverage ledger and never has a skip test. It contributes nothing when no archetype would change the answer, which it says in one line rather than running anyway | — |
 | `orchestrate` | Routes rather than being routed. It reads this file and selects the others, so it never appears as a row in a coverage ledger and never has a skip test | — |
 
 ## 4. Gates
