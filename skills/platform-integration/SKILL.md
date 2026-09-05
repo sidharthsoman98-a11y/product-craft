@@ -1,6 +1,6 @@
 ---
 name: platform-integration
-description: Design and review the integration surface between a platform and a partner - API contracts, webhooks, idempotency, retries, state machines, reconciliation, settlement, merchant onboarding and the path from sandbox to production. Use this when specifying or reviewing an API, when deciding what a partner must send, when an integration is breaking, or when a merchant is going live. Decomposing the work into user stories is ticket-writer; the regulatory obligation itself is compliance-guard.
+description: Design and review the integration surface between a platform and a partner - API contracts, webhooks, idempotency, retries, state machines, reconciliation, settlement, merchant onboarding and going live. Use this when specifying or reviewing an API, when deciding what a partner must send, when an integration is breaking, or when tickets are asked for on an integration change, where this runs first and hands ticket-writer the design. The regulatory obligation itself is compliance-guard.
 ---
 
 # Platform integration

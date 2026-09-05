@@ -1,6 +1,6 @@
 ---
 name: ticket-writer
-description: Turn a decided feature into the sprint-level items an engineering team can build from - stories, acceptance criteria, edge cases, slicing and definition of done. Use this when writing tickets, user stories or backlog items, breaking a feature into tasks, defining acceptance criteria or what counts as done, or working out what engineering needs before it can start. The document above the tickets is spec-writer; an API contract is platform-integration.
+description: Turn a decided feature into the sprint-level items an engineering team can build from - stories, acceptance criteria, edge cases, slicing and definition of done. Use this when writing tickets, user stories or backlog items, breaking a feature into tasks, or defining acceptance criteria. The document above the tickets is spec-writer. Where the work crosses a system boundary - webhooks, retries, idempotency, reconciliation - platform-integration runs first and this writes from its design.
 ---
 
 # Ticket writer
