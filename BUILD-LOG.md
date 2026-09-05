@@ -28,6 +28,11 @@ steps that need the router are marked for Sunday and cannot be ticked early.
 - [x] 3.4 experiment-readout
 - [x] 3.5 launch-plan
 
+## Between Day 3 and Day 4 — unnumbered
+- [x] 9e6ce06 build contract (CLAUDE.md) and the section-pointer check in validate.sh.
+      Not a step in the plan: it came out of the second instance of an instruction citing
+      repo content that did not exist. Logged so the log matches the branch.
+
 ## Day 4 — wiring and release
 - [ ] 4.1 evidence-ledger
 - [ ] 4.2 role-lens

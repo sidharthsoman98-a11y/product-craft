@@ -7,9 +7,10 @@ Target: complete by end of Sunday, in use from Monday.
 
 ## 1. How v2 fits the existing pack
 
-v2 is additive. Nothing in v1 is discarded. Fourteen skills become twenty-four, and the
-existing pieces gain the layer they were missing: v1 analyses and builds, v2 operates and
-remembers.
+v2 is additive. Nothing in v1 is discarded. Fourteen skills become twenty-five — the nine in
+the table below, plus `rca` and `drill`, which the schedule builds but this table does not
+list — and the existing pieces gain the layer they were missing: v1 analyses and builds, v2
+operates and remembers.
 
 ### Complementary, no conflict
 | New | Extends |
@@ -46,7 +47,7 @@ remembers.
 Each is small, and each must be verified by `validate.sh` before the next begins.
 
 1. `references/routing.md` — rewrite. Three modes (employee, interview prep, assignment),
-   twenty-four applicability tests, new dependency edges, ledger scoped by mode.
+   one applicability row per skill on disk, new dependency edges, ledger scoped by mode.
 2. `skills/metric-architecture/SKILL.md` — remove the diagnosis section.
 3. `skills/prototype-build/SKILL.md` — replace UI guidance with delegation to `frontend-design`.
 4. `skills/artefact-forge/SKILL.md` — delegate deck mechanics to `frontend-slides` and `theme-factory`.
@@ -189,7 +190,7 @@ criteria must be testable, and edge cases must include failure, retry and reconc
 |---|---|
 | 30 min | `evidence-ledger` and `knowledge/` convention |
 | 30 min | `role-lens` |
-| 45 min | Rewrite `routing.md` for three modes and 24 skills. Update `orchestrate` |
+| 45 min | Rewrite `routing.md` for three modes, one row per skill on disk. Update `orchestrate` |
 | 20 min | Deletions, `run` to `craft` rename, templates, rubric gates |
 | 20 min | Plugin hygiene: disable the four PM-plugin overlaps and common-room |
 | 35 min | Evals with `skill-creator` against twenty realistic prompts. Fix the misfires |
