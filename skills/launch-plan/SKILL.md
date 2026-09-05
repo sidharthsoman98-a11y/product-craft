@@ -196,6 +196,9 @@ when it was last actually tested; the day-one dashboard, its watcher, the stop t
 the named stop authority; the comms set including the internal break-glass note; the
 commercial sequence where money is involved; and a dated post-launch decision.
 
+Write into `../../templates/launch-plan.md`, which carries the readiness gates, the stage
+table and the dated post-launch decision.
+
 Hand the announcement to `stakeholder-update`, roadmap sequencing to `roadmap-update`,
 prototype deployment to `ship-it`, and anything needing a causal claim to
 `metric-architecture` and `experiment-readout`.

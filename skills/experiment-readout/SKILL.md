@@ -141,6 +141,9 @@ One page, four sections, in this order:
 4. **What we learned** — the durable finding, including process findings such as a missing
    pre-registration.
 
+Write into `../../templates/experiment-readout.md`, which is laid out in this order with
+the methodology already placed in its appendix.
+
 **The recommendation goes first. The methodology goes in an appendix.** A readout that opens
 with methodology gets skimmed, and a skimmed readout is read to the *wrong* conclusion — the
 reader takes the first number they encounter and stops. Put the number you want acted on in

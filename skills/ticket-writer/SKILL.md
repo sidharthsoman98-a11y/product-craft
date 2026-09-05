@@ -234,6 +234,10 @@ trace back to the spec; acceptance criteria a stranger could test; the section 4
 each case specified or ruled out; dependencies with named owners and dates; and the definition
 of done applied rather than assumed.
 
+Write into `../../templates/ticket.md`, which carries the slice table, the acceptance
+criteria form and the edge-case walk as rows that must each be filled or explicitly ruled
+out.
+
 **Per feature:** the slice list in shipping order, the first slice being the thinnest thing
 that is genuinely usable, with the riskiest unknown resolved first.
 

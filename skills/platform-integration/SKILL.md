@@ -294,6 +294,9 @@ polling fallback; the state machine with legal transitions, timeouts and owners;
 reconciliation design with break classes, owners and SLAs; the go-live gates and the in-flight
 rollback path; and the unhappy path including the support lookup.
 
+Write into `../../templates/api-review.md`, which carries the contract, idempotency,
+webhook, state-machine, reconciliation and go-live sections as tables to be completed.
+
 Hand the document to `spec-writer`, the sprint items to `ticket-writer`, the regulatory
 obligations to `compliance-guard`, and any diagram of the state machine or the exception flow
 to `artefact-forge`.
