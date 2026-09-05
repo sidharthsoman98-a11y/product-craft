@@ -43,5 +43,5 @@ steps that need the router are marked for Sunday and cannot be ticked early.
       and theme-factory; artefact-recipes.md aligns. external-skills.md already promises
       these handoffs in its "Called by" column, so until this lands the map claims a
       delegation neither skill performs
-- [ ] 4.5 plugin hygiene
+- [x] 4.5 plugin hygiene
 - [ ] 4.6 evals, v2.0.0, merge to main
