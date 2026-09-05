@@ -1,6 +1,6 @@
 ---
 name: orchestrate
-description: Plan and run a complete product workflow end to end, selecting which product-craft skills apply, sequencing them by dependency, enforcing quality gates and proving coverage before anything is delivered. This is the entry point for any substantial product task - a teardown, a case, an assignment, a new concept, a strategy question or a prototype - including one with a deadline, where it invokes interview-sprint to hold the clock. Prefer it over a single skill when more than one may apply.
+description: Plan and run a complete product workflow end to end, selecting which product-craft skills apply, sequencing them by dependency, enforcing quality gates and proving coverage before anything is delivered. This is the entry point for any substantial product task - a teardown, a case, an assignment, a new concept, a strategy question or a prototype - including one with a submission deadline, where it invokes interview-sprint to hold the clock. Prefer it when more than one skill may apply.
 ---
 
 # Orchestrate
@@ -14,22 +14,38 @@ Load `../../references/routing.md` at the start. Load
 
 ## Procedure
 
-**Step 1: classify and plan.** Quote the request back in one sentence. Classify it against
-the scenario table in `routing.md`. If it matches none, say which is closest and what
-differs. Then print the plan before doing any work:
+**Step 0: `role-lens`.** Before anything else, and in every mode. It fixes archetype, mode
+and time budget and hands them forward. **The mode is settled here, before the scenario is
+chosen**, because the mode decides which skills are candidates at all — per `routing.md`
+section 1, a scenario picked first is a sequence optimised for the wrong reader. Where the
+mode is ambiguous, ask once in one line with the guess named inside the question, per D6.
+`role-lens` is never a ledger row.
+
+**Step 1: `evidence-ledger`.** Second, and before any search. Read `knowledge/` for the
+company or market and report what is held, what is stale and what is missing; search only
+for the stale and the missing. Skipping this is how two runs on one company produce
+contradictory numbers that neither cites. `evidence-ledger` is never a ledger row either.
+
+**Step 2: classify and plan.** Quote the request back in one sentence. Classify it against
+the scenario table in `routing.md`, **within the mode fixed at step 0** — a scenario whose
+Modes column excludes the current mode is the wrong classification, not an exception to it.
+If it matches none, say which is closest and what differs. Then print the plan before doing
+any work:
 
 ```
+Mode: <employee | interview prep | assignment>   Archetype: <consumer tech | fintech | none>
 Scenario: <n> — <name>
 Deliverable: <exact format the user needs>
 Audience: <who evaluates it>          Time budget: <stated or asked>
+Knowledge: <knowledge/<slug>.md, held / stale / missing | no entry>
 Sequence: skill → skill → skill → red-team
 Skipping now: <skill> (<which applicability test failed>)
 Gates: G1 ... G7
 ```
 
-**If there is a deadline, invoke `interview-sprint` before anything else.** This skill is
-the entry point and owns the routing; `interview-sprint` owns the clock, and it sets the
-depth of every step that follows, so it cannot be applied retrospectively to work already
+**If there is a submission deadline, invoke `interview-sprint` before the sequence.** This
+skill is the entry point and owns the routing; `interview-sprint` owns the clock, and it
+sets the depth of every step that follows, so it cannot be applied retrospectively to work already
 done at the wrong depth. Hand it the classified scenario and the deliverable, take back the
 time-boxed plan, and run the sequence inside it. Neither skill is the other's step: routing
 and scheduling are separate jobs on the same run.
@@ -38,30 +54,35 @@ Ask for confirmation only when the classification is genuinely ambiguous or the 
 is unclear. Otherwise state the reading and proceed; a plan that arrives with the work is
 better than a plan that arrives instead of it.
 
-**Step 2: run the sequence.** Invoke each skill in dependency order. Never run a skill whose
+**Step 3: run the sequence.** Invoke each skill in dependency order. Never run a skill whose
 prerequisites have not produced output; if a prerequisite is missing, insert it and say so.
 Carry outputs forward explicitly: the segment chosen in one step is the segment named in the
 next, by name. Drift between steps is the most common way a multi-skill answer becomes
 internally inconsistent.
 
-**Step 3: stop at every gate.** At each gate print one line: gate, pass or fail, and the
+**Step 4: stop at every gate.** At each gate print one line: gate, pass or fail, and the
 evidence. A failed gate is fixed immediately. Do not note a failure and carry on, and do not
 soften a gate because time is short; cut scope instead, in the order given by
 `interview-sprint`.
 
-**Step 4: checkpoint with the user** at G2 (arc), G3 (decision) and G5 (build). Two lines
-each: what is done, what is next, what is at risk. These three are where a wrong turn is
-cheap to correct and expensive to discover later.
+**Step 5: checkpoint with the user** at G2 (arc), G3 (decision) and, **where there is a
+build**, G5. Two lines each: what is done, what is next, what is at risk. These are where a
+wrong turn is cheap to correct and expensive to discover later. G5 is marked N/A with its
+reason when nothing is being built, per `routing.md` section 4 — not dropped in silence.
 
-**Step 5: red team.** Always. Run `red-team` on the assembled deliverable, fix what it
+**Step 6: red team.** Always. Run `red-team` on the assembled deliverable, fix what it
 finds, and report the score before and after.
 
-**Step 6: coverage ledger.** Print the coverage ledger from `routing.md` immediately before
-the deliverable, one row per candidate skill for this mode. Every skill is APPLIED, CONSIDERED-SKIPPED with the failed test
-named, or DEFERRED with the blocker named. "Not relevant" is not a permitted reason.
-Repeat every DEFERRED row in a closing "what I would do next" line.
+**Step 7: coverage ledger.** Print the coverage ledger from `routing.md` immediately before
+the deliverable, one row per candidate skill for this mode. **The candidate set is the
+mode's set in `routing.md` section 1**, narrowed to the scenario's sequence plus every skill
+whose applicability test was evaluated and failed. A skill the mode excludes is not a row,
+and its absence needs no reason: the mode is the reason. `role-lens`, `evidence-ledger` and
+`orchestrate` are never rows. Every remaining skill is APPLIED, CONSIDERED-SKIPPED with the
+failed test named, or DEFERRED with the blocker named. "Not relevant" is not a permitted
+reason. Repeat every DEFERRED row in a closing "what I would do next" line.
 
-**Step 7: deliver**, answer first.
+**Step 8: deliver**, answer first.
 
 ## Rules
 
@@ -76,6 +97,9 @@ Repeat every DEFERRED row in a closing "what I would do next" line.
   downstream. Say which gate reopened and why.
 - Where parallel execution is available, parallelise research only. Deciding is one thread
   and it belongs to the user.
+- After delivery, hand back to `evidence-ledger` to write what the run verified into
+  `knowledge/`. A run that gathers facts and discards them makes the next run start over and
+  arrive somewhere different.
 
 ## Degraded modes
 
