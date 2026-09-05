@@ -1,6 +1,6 @@
 {
   "name": "product-craft",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A working toolkit for product management: teardowns, metric architecture, decision forensics, unit economics, ideation, prototyping and shipping. Built for PM and APM interview loops at big tech, Indian consumer tech and fintech, where a full case must be turned around in a day.",
   "author": {
     "name": "product-craft contributors"
