@@ -28,8 +28,16 @@ cases/        one folder per case or assignment
 teardowns/    one file per product
 prototypes/   one folder per build
 drills/       one file per scored drill run
+knowledge/    one file per company or market, the store of verified facts
 outputs/      the assembled deliverables
 ```
+
+`knowledge/` is the fact store the `evidence-ledger` skill reads and writes. One file per
+company or market. Any skill needing a fact about a named company opens it before searching
+the web, and only verified facts go back in, each with its source class, URL, date checked
+and confidence. Facts over 90 days old are flagged when read (D5). Nothing confidential from
+an assignment brief or an employer goes in here — the test is whether you could hand the
+file to the company it describes.
 
 `drills/` is the run store. One file per round, named `<date>-<company>-<round>-<n>.md`,
 where `<n>` is the run index starting at 1 — for example `2026-09-08-swiggy-rca-1.md`. The

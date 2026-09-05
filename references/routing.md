@@ -51,6 +51,11 @@ Hard rules:
 - `orchestrate` is the entry point when there is a deadline, and it invokes
   `interview-sprint` first, because the clock changes the depth of everything else.
   `interview-sprint` owns the schedule inside the run; `orchestrate` owns the routing.
+- `evidence-ledger` reads before anything reaches for the web. Any skill needing a fact
+  about a named company, market or regulation opens `knowledge/<slug>.md` first and searches
+  only for what is missing or stale, then writes back what was verified at the end of the
+  run. Skipping the read is how two runs on one company produce contradictory numbers that
+  neither cites. Its dependency edges land with the section 4.3 rewrite.
 - `drill` and `red-team` are scoped by object, per D11. `drill` runs the live round, holds
   the clock and owns calibration; `red-team` owns scoring, and `drill` calls it for the
   scoring step rather than restating the rubric. Runs are written to `drills/` in the
@@ -112,6 +117,7 @@ rule is what keeps it from going stale.
 | `compliance-guard` | A regulatory or policy constraint touches the design — identity, consent, data handling, audit, grievance, conduct, disclosure, or a growth mechanic that may be a dark pattern | The mechanics of an integration are the subject, which is `platform-integration`; or nothing in the answer touches regulated money, data or identity, which must be argued rather than assumed |
 | `marketplace-ops` | The constraint is physical rather than a funnel — supply, capacity, promise adherence, workforce tooling, or a city or zone launch | The question is a whole product across all its layers, which is `product-teardown`, or a number that has already moved, which is `rca` |
 | `drill` | A live round is wanted under time — a mock interview, a case delivered aloud, a named round type, or a company and round together | The object is a finished deliverable rather than a live performance, which is `red-team`; or a real submission is due and needs a plan first, which is `interview-sprint` |
+| `evidence-ledger` | A fact about a named company, market or regulation is needed, or a run has learned one worth keeping | The only claims involved are structural rather than about a named party — the exempt class in `sources.md` section 3 — so there is nothing to store or retrieve |
 | `red-team` | Always | Never |
 | `orchestrate` | Routes rather than being routed. It reads this file and selects the others, so it never appears as a row in a coverage ledger and never has a skip test | — |
 
