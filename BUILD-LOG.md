@@ -34,7 +34,7 @@ steps that need the router are marked for Sunday and cannot be ticked early.
       repo content that did not exist. Logged so the log matches the branch.
 
 ## Day 4 — wiring and release
-- [ ] 4.1 evidence-ledger
+- [x] 4.1 evidence-ledger
 - [ ] 4.2 role-lens
 - [ ] 4.3 routing.md rewrite + orchestrate update
 - [ ] 4.4 deletions, run to craft rename, templates, rubric gates
