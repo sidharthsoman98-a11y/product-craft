@@ -45,7 +45,7 @@ Owning step is recorded only where a commit or the build plan names one.
 |---|---|---|---|---|---|
 | F1 | `skills/rca` shipped with "Score against `references/rubrics.md`" while the artefact-specific gates covered only Teardown, Metric answer, Case, PRD/PRFAQ and Prototype demo. The path resolved; the material it pointed at did not exist, so an RCA could be scored against nothing in particular | — | — | Closed | `0717fe5` |
 | F2 | `rca` pointed at "section 2 when step 2 turns up a measurement candidate" without saying whose numbering. `rca`'s step 2 is the diagnostic playbook's step 1, because the playbook assumes the number has already been pinned down and `rca`'s step 1 is the pinning down | — | — | Closed | `5e9ae4c` |
-| F3 | `external-skills.md`'s "Called by" column promised delegations that no skill performed — `prototype-build` to `frontend-design`, `artefact-forge` to `frontend-slides` and `theme-factory` — while all three files still carried those mechanics in-house. Had no owning step until one was created. **The commit treats F3 and F18 as one item and does not say which number covers which delegation** | — | 4.4a | Open | — |
+| F3 | `external-skills.md`'s "Called by" column promised delegations that no skill performed — `prototype-build` to `frontend-design`, `artefact-forge` to `frontend-slides` and `theme-factory` — while all three files still carried those mechanics in-house. Had no owning step until one was created. **The commit treats F3 and F18 as one item and does not say which number covers which delegation** | — | 4.4a | Closed | `v2: delegate UI and deck mechanics` |
 | F4 | "`role-packs.md` and `india-context.md` open 'Loaded by role-lens'. No such skill exists." | Low | 4.2 | Closed | `v2: add role-lens skill` |
 | F5 | `routing.md` said "Thirteen rows, always thirteen" while D2 scopes the ledger to the mode's candidate skills rather than the whole pack. The number had been copied into G6, `orchestrate` step 6 and `commands/run.md`, so a fifteen-skill pack was still told to print thirteen rows, and `rca` had nowhere to appear | — | — | Closed | `2ad2dc3` |
 | F6 | `routing.md` scenario 3 routed to `rca` while section 3's applicability table had no `rca` row, so the ledger could never record it as applied or skipped, and the dependency graph had no `rca` node | — | — | Closed | `6557862` |
@@ -54,7 +54,7 @@ Owning step is recorded only where a commit or the build plan names one.
 | F10 | D3 said the diagnosis section was "removed from `metric-architecture` entirely" while the plan said replace it with a one-line handover, which is what was built | — | — | Closed | `5e9ae4c` |
 | F12 | `README.md` said fourteen skills (fifteen existed), eight reference libraries (fourteen existed) and six decomposition patterns (`metric-library` defines seven), and had no `rca` row | — | — | Closed | `5e9ae4c` |
 | F15 | `decision-forensics` claimed "post-mortem" in its description, which belongs to `rca` per D3 and routing scenario 3 | — | — | Closed | `f73d621` |
-| F18 | See F3. The two are recorded together in `5e3a1b1` and are not individually distinguished there | — | 4.4a | Open | — |
+| F18 | See F3. The two are recorded together in `5e3a1b1` and are not individually distinguished there | — | 4.4a | Closed | `v2: delegate UI and deck mechanics` |
 | F19 | D4 decides scoring is "score plus trend across stored runs in the workspace", but the workspace template defined no store, and `red-team` already promised to compare against the previous score with nowhere to read one from | — | — | Closed | `cfbdbe8` |
 | F22 | The `drill` versus `red-team` boundary was decided in the build plan and never recorded as a decision, so 2.4 had nothing durable to build against | — | — | Closed | `cfbdbe8` |
 
@@ -69,6 +69,13 @@ Owning step is recorded only where a commit or the build plan names one.
   `<date>-<company>-<round>.md`; `77f5671` added a run index because two rounds on the same
   day, company and round type collided and the second overwrote the first. That fix carried
   no finding number.
+- **Two more rows of the same class were found while closing F3 and F18, and fixed in the
+  same commit.** `external-skills.md` also listed `web-artifacts-builder` as called by
+  `prototype-build` and `artefact-forge`, and `productivity:task-management` as called by
+  `orchestrate`; none of those three skills mentions either. Both rows now say plainly that
+  no pack skill routes to them. **No F-number is assigned**, because the numbering belongs to
+  the original audit and inventing the next one risks colliding with a real finding whose
+  text was never recovered. Recorded here instead, per this file's own rule.
 - **Severity was recorded only for F4**, because it is the only entry whose original audit
   text was recovered rather than reconstructed from a commit summary. The blank column for
   every other row means the severity was not preserved, not that it was low.

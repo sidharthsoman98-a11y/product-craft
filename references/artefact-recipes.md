@@ -15,12 +15,12 @@ availability differs by environment — the xlsx, docx and pptx skills exist in 
 | Metric tree | Mermaid graph, or a nested markdown list | 10 min | Showing decomposition and ownership |
 | Journey map | Markdown table: stage, action, thought, pain, opportunity, metric | 20 min | Locating where in the journey the problem lives |
 | Competitive matrix | Markdown table, features as rows, players as columns | 20 min | Positioning; must include a "what nobody does" row |
-| Wireframe | Single HTML file with Tailwind, or SVG | 45 min | Structure of one screen, before building |
+| Wireframe | Single HTML file with Tailwind, or SVG; `frontend-design` where it must look real | 45 min | Structure of one screen, before building |
 | Clickable prototype | Next.js on Vercel (see prototype-stack.md) | 3-5 h | Demonstrating the loop |
 | Sizing model | Spreadsheet: `openpyxl`, or the xlsx skill in claude.ai | 30 min | Numbers must be inspected or changed live |
 | Unit economics model | Spreadsheet, one tab of assumptions, one of outputs | 45 min | Sensitivity is part of the argument |
 | PRD or PRFAQ | Markdown; Word or PDF via `python-docx` / `pandoc`, or the docx skill in claude.ai | 1-2 h | Handing over to build |
-| Deck | HTML deck by default; `.pptx` via `python-pptx`, or the pptx skill in claude.ai | 1-2 h | Panel presentation with a fixed time limit |
+| Deck | Structure decided here, built by `frontend-slides` and themed by `theme-factory`; HTML by default, `.pptx` via `python-pptx` or the pptx skill in claude.ai | 1-2 h | Panel presentation with a fixed time limit |
 | One-pager | Markdown | 30 min | Executive decision requested |
 
 ## Rules
@@ -33,7 +33,9 @@ availability differs by environment — the xlsx, docx and pptx skills exist in 
   If you cannot write the caption, the diagram is decoration.
 - **Decks**: one message per slide, stated in the title as a sentence, not a label.
   Evidence in the body. Fifteen slides maximum for a thirty-minute slot, plus an appendix
-  that answers the four questions you expect.
+  that answers the four questions you expect. **All of that is the argument and stays here.**
+  Slide mechanics go to `frontend-slides` and theming to `theme-factory`, per
+  `external-skills.md` section 2 — hand over the decided structure, not the brief.
 - **Spreadsheets**: assumptions on their own tab, colour-coded inputs, no hardcoded numbers
   inside formulas, and one output tab that a reader can understand without you present.
   Write live formulas rather than computed values; a model with hardcoded results is a table.

@@ -34,8 +34,14 @@ list of questions:
    console. Wire it to the four or five decision-bearing actions. Being able to open the
    console during a demo and show the events firing is disproportionately persuasive.
 5. Add one unhappy path in full: a payment failure, a rejection, an empty state, a retry.
-6. Only now, style. Mobile-first at 390px. Consistent spacing, one accent colour, real
-   contrast, visible focus states, touch targets of at least 44px.
+6. Only now, style — and **hand the mechanics to `frontend-design`**. This skill decides
+   what the prototype must show and at what fidelity; how it looks is that skill's job, and
+   reimplementing it here produces a thinner version of work that already exists. Hand over
+   the decided loop, the fidelity level from step 3 and the constraints that are product
+   decisions rather than taste: mobile-first at 390px, one accent colour, visible focus
+   states, and touch targets of at least 44px because the demo is driven on a phone. Take
+   back the styled components. If `frontend-design` is unavailable, say so and style it
+   here to those constraints rather than silently producing something thinner.
 7. Deploy via `ship-it`.
 8. Write the demo script from `../../references/prototype-stack.md`, under three minutes,
    narrating decisions rather than clicks.
@@ -47,7 +53,8 @@ list of questions:
 - Keep dependencies minimal. Every added package is a build failure waiting for hour 23.
 - If a build error appears, fix the root cause rather than adding a workaround; workarounds
   compound and the second one usually costs an hour.
-- Time-box styling to twenty per cent of the budget.
+- Time-box styling to twenty per cent of the budget, including the round trip to
+  `frontend-design`. The budget is the constraint, not who does the work.
 
 ## What to fake and what to build
 

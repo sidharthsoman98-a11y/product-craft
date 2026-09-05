@@ -35,13 +35,13 @@ Available, not rebuilt here, and to be handed work rather than duplicated.
 | `product-management:stakeholder-update` | Weekly and monthly status, launch announcements, risk escalation | Job-side work; `launch-plan` for the announcement |
 | `product-management:sprint-planning` | Sprint scoping, capacity, carryover | Job-side work; after `ticket-writer` has produced the tickets |
 | `product-management:roadmap-update` | Roadmap changes, Now/Next/Later, reprioritisation | Job-side work; `launch-plan` for sequencing |
-| `frontend-design` | Prototype UI: visual design, component structure, styling | `prototype-build` |
-| `web-artifacts-builder` | Self-contained interactive artefacts and published pages | `prototype-build`, `artefact-forge` |
+| `frontend-design` | Prototype UI: visual design, component structure, styling | `prototype-build` step 6; `artefact-forge` for a wireframe that must look real |
+| `web-artifacts-builder` | Self-contained interactive artefacts and published pages | **Not currently called by any pack skill.** Available and worth reaching for by hand; no skill routes to it |
 | `frontend-slides` | Deck mechanics: HTML presentations, slide structure, transitions | `artefact-forge` |
 | `theme-factory` | Deck and page visual theming | `artefact-forge` |
 | `docx`, `pptx`, `xlsx`, `pdf` | Binary document output — **claude.ai only**, see section 4 | `artefact-forge` |
 | `skill-creator` | Writing and running evals for the pack's own skills | Pack maintenance |
-| `productivity:task-management` | The working backlog across sessions | Job-side work; `orchestrate` for open cases |
+| `productivity:task-management` | The working backlog across sessions | **Not currently called by any pack skill.** Job-side work by hand; `orchestrate` does not route to it |
 
 None of these three job-side skills — `stakeholder-update`, `sprint-planning`,
 `roadmap-update` — is rebuilt in this pack. That is deliberate: they are execution
@@ -113,3 +113,7 @@ cannot execute.
   standing in.
 - **Never reimplement across the boundary.** If a pack skill is drifting into work section 2
   already covers, that is a scoping bug in the pack skill, not a gap in the external one.
+- **The "Called by" column is a claim about this pack and is checkable.** A row naming a
+  pack skill means that skill hands the work over in its own text. If it does not, the row
+  is wrong and the map is overstating what the pack does — which is what F3 and F18 were.
+  Fix the column or fix the skill; do not leave them disagreeing.

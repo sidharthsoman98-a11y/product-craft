@@ -27,11 +27,16 @@ Mermaid patterns.
 - Spreadsheets: assumptions on their own tab, inputs colour-coded, no hardcoded numbers
   inside formulas, one output tab a reader can follow unaided. Build with `openpyxl` in
   Claude Code, or the xlsx skill in claude.ai; see `../../references/tooling.md`.
-- Decks: an HTML deck by default, since it is faster to change and can be deployed as a
-  link. Produce a `.pptx` only when a file is demanded, via `python-pptx` in Claude Code or
-  the pptx skill in claude.ai; see `../../references/tooling.md`. One message per slide,
-  stated as a sentence in the title. Fifteen slides maximum for thirty minutes, plus an
-  appendix answering the four questions you expect to be asked.
+- Decks: **this skill owns the argument; `frontend-slides` owns the deck and
+  `theme-factory` owns its look.** Decide the message per slide, its order, and what the
+  appendix must answer — then hand that structure over rather than building the slides here.
+  What stays here because it is the argument: one message per slide stated as a sentence in
+  the title, evidence in the body, fifteen slides maximum for thirty minutes, plus an
+  appendix answering the four questions you expect to be asked. An HTML deck is the default
+  because it is faster to change and can be deployed as a link; produce a `.pptx` only when
+  a file is demanded, via `python-pptx` in Claude Code or the pptx skill in claude.ai; see
+  `../../references/tooling.md`. If either skill is unavailable, say so and build the deck
+  here to the same structure.
 - Documents: markdown by default. Produce Word or PDF only when the recipient requires it,
   via `python-docx` or `pandoc` in Claude Code, or the docx skill in claude.ai; see
   `../../references/tooling.md`.
