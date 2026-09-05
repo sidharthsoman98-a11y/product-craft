@@ -51,6 +51,47 @@ table rather than resolved by assertion.
 the demo script is under three minutes, the fake data is plausible, and the honest
 limitations slide exists.
 
+**Ticket set**: every ticket traces to a stated user problem or contract clause; acceptance
+criteria testable by a stranger with no context, in given/when/then rather than a
+description of the build; the edge-case walk complete, with failure, retry and
+reconciliation each either specified or explicitly ruled out with a reason; slices in
+shipping order with the first genuinely usable on its own; dependencies carrying named
+owners and dates; definition of done applied rather than assumed; and what is deliberately
+not in the ticket stated, since that is what a reader would otherwise assume is included. A
+slice that is not usable alone is a stage, and a ticket set of stages fails this gate.
+
+**Experiment readout**: recommendation in the first two lines and stated as a decision
+rather than a menu; title states the outcome, not the topic; the interval reported rather
+than the point estimate; the pre-registered decision rule quoted as it stood before the
+data, and where none was registered that named as a process finding rather than omitted;
+the checks that could have changed the conclusion listed with what each returned; decision
+carrying an owner and a date; and methodology in an appendix. A readout that opens with
+methodology fails this gate even when every number in it is right.
+
+**Launch plan**: six readiness gates each answered yes or no with a name against it and
+nothing left "in progress"; stages whose gates are questions answered rather than dates
+reached; the kill switch named with who holds it, how fast it acts and when it was last
+actually run; day-one dashboard with a named watcher, a stop threshold and a named stop
+authority; comms including the internal break-glass note; and a dated post-launch decision
+with an owner. A rollback nobody has run is a hypothesis and does not satisfy this gate.
+
+**Integration or API review**: field-level contract with optionality and versioning; error
+taxonomy stating retryability and the partner's action for each code; idempotency key with
+its derivation, scope, lifetime and collision behaviour; webhook contract distinguishing
+hint from truth, with the polling fallback; state machine with legal transitions, timeouts
+and an owner per transition; reconciliation with break classes, owners and SLAs; go-live
+gates including sandbox parity and the in-flight rollback path; and the unhappy path
+including the support lookup. A design correct on the happy path that silently creates a
+manual queue for someone else does not pass.
+
+**Drill transcript**: the prompt given as written and the clock held to it; no coaching,
+running commentary or visible notes during the round; the round scored by `red-team` against
+the universal dimensions rather than by a rubric restated inside the drill; the weakest
+sentence quoted back verbatim; exactly one fix named; the run written to `drills/` under a
+filename that cannot overwrite an earlier run; and the trend across stored runs read before
+the next round is chosen. A drill that explained instead of examining fails this gate
+regardless of the score it produced.
+
 ## Failure catalogue
 
 Check for these by name. They are the recurring reasons strong-sounding answers fail.
